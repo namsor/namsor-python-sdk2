@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import openapi_client
-from openapi_client.namsor_sdk2_model.api_counter_v2_out import APICounterV2Out  # noqa: E501
+from openapi_client.models.api_counter_v2_out import APICounterV2Out  # noqa: E501
 from openapi_client.rest import ApiException
 
 

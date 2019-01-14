@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import openapi_client
-from openapi_client.namsor_sdk2_model.parsed_full_name_in import ParsedFullNameIn  # noqa: E501
+from openapi_client.models.parsed_full_name_in import ParsedFullNameIn  # noqa: E501
 from openapi_client.rest import ApiException
 
 

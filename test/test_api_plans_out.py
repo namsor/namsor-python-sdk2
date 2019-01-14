@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import openapi_client
-from openapi_client.namsor_sdk2_model.api_plans_out import APIPlansOut  # noqa: E501
+from openapi_client.models.api_plans_out import APIPlansOut  # noqa: E501
 from openapi_client.rest import ApiException
 
 

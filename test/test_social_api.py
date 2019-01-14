@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import openapi_client
-from namsor_sdk2_api.social_api import SocialApi  # noqa: E501
+from openapi_client.api.social_api import SocialApi  # noqa: E501
 from openapi_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestSocialApi(unittest.TestCase):
     """SocialApi unit test stubs"""
 
     def setUp(self):
-        self.api = namsor_sdk2_api.social_api.SocialApi()  # noqa: E501
+        self.api = openapi_client.api.social_api.SocialApi()  # noqa: E501
 
     def tearDown(self):
         pass

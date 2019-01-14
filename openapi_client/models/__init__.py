@@ -1,7 +1,6 @@
 # coding: utf-8
 
 # flake8: noqa
-
 """
     NamSor API v2
 
@@ -15,18 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "1.0.0"
-
-# import apis into sdk package
-from openapi_client.api.admin_api import AdminApi
-from openapi_client.api.chinese_api import ChineseApi
-from openapi_client.api.personal_api import PersonalApi
-from openapi_client.api.social_api import SocialApi
-
-# import ApiClient
-from openapi_client.api_client import ApiClient
-from openapi_client.configuration import Configuration
-# import models into sdk package
+# import models into model package
 from openapi_client.models.api_billing_period_usage_out import APIBillingPeriodUsageOut
 from openapi_client.models.api_counter_v2_out import APICounterV2Out
 from openapi_client.models.api_key_out import APIKeyOut

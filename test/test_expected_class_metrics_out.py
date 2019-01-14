@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import openapi_client
-from openapi_client.namsor_sdk2_model.expected_class_metrics_out import ExpectedClassMetricsOut  # noqa: E501
+from openapi_client.models.expected_class_metrics_out import ExpectedClassMetricsOut  # noqa: E501
 from openapi_client.rest import ApiException
 
 

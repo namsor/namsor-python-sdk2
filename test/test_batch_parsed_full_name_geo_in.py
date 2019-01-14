@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import openapi_client
-from openapi_client.namsor_sdk2_model.batch_parsed_full_name_geo_in import BatchParsedFullNameGeoIn  # noqa: E501
+from openapi_client.models.batch_parsed_full_name_geo_in import BatchParsedFullNameGeoIn  # noqa: E501
 from openapi_client.rest import ApiException
 
 
