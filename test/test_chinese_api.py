@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import openapi_client
-from com.namsor.sdk2.api.chinese_api import ChineseApi  # noqa: E501
+from namsor_sdk2_api.chinese_api import ChineseApi  # noqa: E501
 from openapi_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestChineseApi(unittest.TestCase):
     """ChineseApi unit test stubs"""
 
     def setUp(self):
-        self.api = com.namsor.sdk2.api.chinese_api.ChineseApi()  # noqa: E501
+        self.api = namsor_sdk2_api.chinese_api.ChineseApi()  # noqa: E501
 
     def tearDown(self):
         pass

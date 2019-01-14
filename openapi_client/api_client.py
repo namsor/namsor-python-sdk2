@@ -24,7 +24,7 @@ import six
 from six.moves.urllib.parse import quote
 
 from openapi_client.configuration import Configuration
-import openapi_client.com.namsor.sdk2.model
+import openapi_client.namsor_sdk2_model
 from openapi_client import rest
 
 
@@ -272,7 +272,7 @@ class ApiClient(object):
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                klass = getattr(openapi_client.com.namsor.sdk2.model, klass)
+                klass = getattr(openapi_client.namsor_sdk2_model, klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)

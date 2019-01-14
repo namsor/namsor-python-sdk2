@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import openapi_client
-from openapi_client.com.namsor.sdk2.model.first_last_name_geo_in import FirstLastNameGeoIn  # noqa: E501
+from openapi_client.namsor_sdk2_model.first_last_name_geo_in import FirstLastNameGeoIn  # noqa: E501
 from openapi_client.rest import ApiException
 
 
