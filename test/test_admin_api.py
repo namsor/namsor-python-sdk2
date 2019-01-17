@@ -148,6 +148,13 @@ class TestAdminApi(unittest.TestCase):
         """
         pass
 
+    def test_redeploy_ui1(self):
+        """Test case for redeploy_ui1
+
+        Redeploy UI from current dev branch.  # noqa: E501
+        """
+        pass
+
     def test_remove_user_account(self):
         """Test case for remove_user_account
 

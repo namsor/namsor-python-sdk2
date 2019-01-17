@@ -1555,6 +1555,96 @@ class AdminApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def redeploy_ui1(self, live, **kwargs):  # noqa: E501
+        """Redeploy UI from current dev branch.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.redeploy_ui1(live, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param bool live: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.redeploy_ui1_with_http_info(live, **kwargs)  # noqa: E501
+        else:
+            (data) = self.redeploy_ui1_with_http_info(live, **kwargs)  # noqa: E501
+            return data
+
+    def redeploy_ui1_with_http_info(self, live, **kwargs):  # noqa: E501
+        """Redeploy UI from current dev branch.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.redeploy_ui1_with_http_info(live, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param bool live: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['live']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method redeploy_ui1" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'live' is set
+        if ('live' not in local_var_params or
+                local_var_params['live'] is None):
+            raise ValueError("Missing the required parameter `live` when calling `redeploy_ui1`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'live' in local_var_params:
+            path_params['live'] = local_var_params['live']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['api_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api2/json/redeployUI/{live}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def remove_user_account(self, token, **kwargs):  # noqa: E501
         """Subscribe to a give API plan, using the user's preferred or default currency.  # noqa: E501
 

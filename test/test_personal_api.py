@@ -71,6 +71,34 @@ class TestPersonalApi(unittest.TestCase):
         """
         pass
 
+    def test_gender_full(self):
+        """Test case for gender_full
+
+        Infer the likely gender of a full name, ex. John H. Smith  # noqa: E501
+        """
+        pass
+
+    def test_gender_full_batch(self):
+        """Test case for gender_full_batch
+
+        Infer the likely gender of up to 1000 full names, detecting automatically the cultural context.  # noqa: E501
+        """
+        pass
+
+    def test_gender_full_geo(self):
+        """Test case for gender_full_geo
+
+        Infer the likely gender of a full name, given a local context (ISO2 country code).  # noqa: E501
+        """
+        pass
+
+    def test_gender_full_geo_batch(self):
+        """Test case for gender_full_geo_batch
+
+        Infer the likely gender of up to 1000 full names, with a given cultural context (country ISO2 code).  # noqa: E501
+        """
+        pass
+
     def test_gender_geo(self):
         """Test case for gender_geo
 

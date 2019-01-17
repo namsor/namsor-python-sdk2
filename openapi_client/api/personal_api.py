@@ -621,6 +621,390 @@ class PersonalApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def gender_full(self, full_name, **kwargs):  # noqa: E501
+        """Infer the likely gender of a full name, ex. John H. Smith  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.gender_full(full_name, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str full_name: (required)
+        :return: FirstLastNameGenderedOut
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.gender_full_with_http_info(full_name, **kwargs)  # noqa: E501
+        else:
+            (data) = self.gender_full_with_http_info(full_name, **kwargs)  # noqa: E501
+            return data
+
+    def gender_full_with_http_info(self, full_name, **kwargs):  # noqa: E501
+        """Infer the likely gender of a full name, ex. John H. Smith  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.gender_full_with_http_info(full_name, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str full_name: (required)
+        :return: FirstLastNameGenderedOut
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['full_name']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method gender_full" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'full_name' is set
+        if ('full_name' not in local_var_params or
+                local_var_params['full_name'] is None):
+            raise ValueError("Missing the required parameter `full_name` when calling `gender_full`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'full_name' in local_var_params:
+            path_params['fullName'] = local_var_params['full_name']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api2/json/genderFull/{fullName}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='FirstLastNameGenderedOut',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def gender_full_batch(self, **kwargs):  # noqa: E501
+        """Infer the likely gender of up to 1000 full names, detecting automatically the cultural context.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.gender_full_batch(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param BatchPersonalNameIn batch_personal_name_in: A list of personal names
+        :return: BatchFirstLastNameGenderedOut
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.gender_full_batch_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.gender_full_batch_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def gender_full_batch_with_http_info(self, **kwargs):  # noqa: E501
+        """Infer the likely gender of up to 1000 full names, detecting automatically the cultural context.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.gender_full_batch_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param BatchPersonalNameIn batch_personal_name_in: A list of personal names
+        :return: BatchFirstLastNameGenderedOut
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['batch_personal_name_in']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method gender_full_batch" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'batch_personal_name_in' in local_var_params:
+            body_params = local_var_params['batch_personal_name_in']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api2/json/genderFullBatch', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='BatchFirstLastNameGenderedOut',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def gender_full_geo(self, full_name, country_iso2, **kwargs):  # noqa: E501
+        """Infer the likely gender of a full name, given a local context (ISO2 country code).  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.gender_full_geo(full_name, country_iso2, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str full_name: (required)
+        :param str country_iso2: (required)
+        :return: FirstLastNameGenderedOut
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.gender_full_geo_with_http_info(full_name, country_iso2, **kwargs)  # noqa: E501
+        else:
+            (data) = self.gender_full_geo_with_http_info(full_name, country_iso2, **kwargs)  # noqa: E501
+            return data
+
+    def gender_full_geo_with_http_info(self, full_name, country_iso2, **kwargs):  # noqa: E501
+        """Infer the likely gender of a full name, given a local context (ISO2 country code).  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.gender_full_geo_with_http_info(full_name, country_iso2, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str full_name: (required)
+        :param str country_iso2: (required)
+        :return: FirstLastNameGenderedOut
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['full_name', 'country_iso2']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method gender_full_geo" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'full_name' is set
+        if ('full_name' not in local_var_params or
+                local_var_params['full_name'] is None):
+            raise ValueError("Missing the required parameter `full_name` when calling `gender_full_geo`")  # noqa: E501
+        # verify the required parameter 'country_iso2' is set
+        if ('country_iso2' not in local_var_params or
+                local_var_params['country_iso2'] is None):
+            raise ValueError("Missing the required parameter `country_iso2` when calling `gender_full_geo`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'full_name' in local_var_params:
+            path_params['fullName'] = local_var_params['full_name']  # noqa: E501
+        if 'country_iso2' in local_var_params:
+            path_params['countryIso2'] = local_var_params['country_iso2']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api2/json/genderFullGeo/{fullName}/{countryIso2}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='FirstLastNameGenderedOut',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def gender_full_geo_batch(self, **kwargs):  # noqa: E501
+        """Infer the likely gender of up to 1000 full names, with a given cultural context (country ISO2 code).  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.gender_full_geo_batch(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param BatchPersonalNameIn batch_personal_name_in: A list of personal names
+        :return: BatchFirstLastNameGenderedOut
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.gender_full_geo_batch_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.gender_full_geo_batch_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def gender_full_geo_batch_with_http_info(self, **kwargs):  # noqa: E501
+        """Infer the likely gender of up to 1000 full names, with a given cultural context (country ISO2 code).  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.gender_full_geo_batch_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param BatchPersonalNameIn batch_personal_name_in: A list of personal names
+        :return: BatchFirstLastNameGenderedOut
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['batch_personal_name_in']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method gender_full_geo_batch" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'batch_personal_name_in' in local_var_params:
+            body_params = local_var_params['batch_personal_name_in']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api2/json/genderFullGeoBatch', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='BatchFirstLastNameGenderedOut',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def gender_geo(self, first_name, last_name, country_iso2, **kwargs):  # noqa: E501
         """Infer the likely gender of a name, given a local context (ISO2 country code).  # noqa: E501
 
