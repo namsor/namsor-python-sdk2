@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **gender_full_batch**
-> BatchFirstLastNameGenderedOut gender_full_batch(batch_personal_name_in=batch_personal_name_in)
+> BatchPersonalNameGenderedOut gender_full_batch(batch_personal_name_in=batch_personal_name_in)
 
 Infer the likely gender of up to 1000 full names, detecting automatically the cultural context.
 
@@ -451,7 +451,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BatchFirstLastNameGenderedOut**](BatchFirstLastNameGenderedOut.md)
+[**BatchPersonalNameGenderedOut**](BatchPersonalNameGenderedOut.md)
 
 ### Authorization
 
@@ -521,7 +521,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **gender_full_geo_batch**
-> BatchFirstLastNameGenderedOut gender_full_geo_batch(batch_personal_name_in=batch_personal_name_in)
+> BatchPersonalNameGenderedOut gender_full_geo_batch(batch_personal_name_in=batch_personal_name_in)
 
 Infer the likely gender of up to 1000 full names, with a given cultural context (country ISO2 code).
 
@@ -561,7 +561,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BatchFirstLastNameGenderedOut**](BatchFirstLastNameGenderedOut.md)
+[**BatchPersonalNameGenderedOut**](BatchPersonalNameGenderedOut.md)
 
 ### Authorization
 

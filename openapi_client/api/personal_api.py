@@ -725,7 +725,7 @@ class PersonalApi(object):
 
         :param async_req bool
         :param BatchPersonalNameIn batch_personal_name_in: A list of personal names
-        :return: BatchFirstLastNameGenderedOut
+        :return: BatchPersonalNameGenderedOut
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -746,7 +746,7 @@ class PersonalApi(object):
 
         :param async_req bool
         :param BatchPersonalNameIn batch_personal_name_in: A list of personal names
-        :return: BatchFirstLastNameGenderedOut
+        :return: BatchPersonalNameGenderedOut
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -801,7 +801,7 @@ class PersonalApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='BatchFirstLastNameGenderedOut',  # noqa: E501
+            response_type='BatchPersonalNameGenderedOut',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -921,7 +921,7 @@ class PersonalApi(object):
 
         :param async_req bool
         :param BatchPersonalNameIn batch_personal_name_in: A list of personal names
-        :return: BatchFirstLastNameGenderedOut
+        :return: BatchPersonalNameGenderedOut
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -942,7 +942,7 @@ class PersonalApi(object):
 
         :param async_req bool
         :param BatchPersonalNameIn batch_personal_name_in: A list of personal names
-        :return: BatchFirstLastNameGenderedOut
+        :return: BatchPersonalNameGenderedOut
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -997,7 +997,7 @@ class PersonalApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='BatchFirstLastNameGenderedOut',  # noqa: E501
+            response_type='BatchPersonalNameGenderedOut',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
