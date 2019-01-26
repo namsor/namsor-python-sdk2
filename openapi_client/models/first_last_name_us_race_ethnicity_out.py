@@ -140,6 +140,7 @@ class FirstLastNameUSRaceEthnicityOut(object):
     def race_ethnicity_alt(self):
         """Gets the race_ethnicity_alt of this FirstLastNameUSRaceEthnicityOut.  # noqa: E501
 
+        Second most likely US 'race'/ethnicity  # noqa: E501
 
         :return: The race_ethnicity_alt of this FirstLastNameUSRaceEthnicityOut.  # noqa: E501
         :rtype: str
@@ -150,10 +151,17 @@ class FirstLastNameUSRaceEthnicityOut(object):
     def race_ethnicity_alt(self, race_ethnicity_alt):
         """Sets the race_ethnicity_alt of this FirstLastNameUSRaceEthnicityOut.
 
+        Second most likely US 'race'/ethnicity  # noqa: E501
 
         :param race_ethnicity_alt: The race_ethnicity_alt of this FirstLastNameUSRaceEthnicityOut.  # noqa: E501
         :type: str
         """
+        allowed_values = ["W_NL", "HL", "A", "B_NL"]  # noqa: E501
+        if race_ethnicity_alt not in allowed_values:
+            raise ValueError(
+                "Invalid value for `race_ethnicity_alt` ({0}), must be one of {1}"  # noqa: E501
+                .format(race_ethnicity_alt, allowed_values)
+            )
 
         self._race_ethnicity_alt = race_ethnicity_alt
 
@@ -161,6 +169,7 @@ class FirstLastNameUSRaceEthnicityOut(object):
     def race_ethnicity(self):
         """Gets the race_ethnicity of this FirstLastNameUSRaceEthnicityOut.  # noqa: E501
 
+        Most likely US 'race'/ethnicity  # noqa: E501
 
         :return: The race_ethnicity of this FirstLastNameUSRaceEthnicityOut.  # noqa: E501
         :rtype: str
@@ -171,10 +180,17 @@ class FirstLastNameUSRaceEthnicityOut(object):
     def race_ethnicity(self, race_ethnicity):
         """Sets the race_ethnicity of this FirstLastNameUSRaceEthnicityOut.
 
+        Most likely US 'race'/ethnicity  # noqa: E501
 
         :param race_ethnicity: The race_ethnicity of this FirstLastNameUSRaceEthnicityOut.  # noqa: E501
         :type: str
         """
+        allowed_values = ["W_NL", "HL", "A", "B_NL"]  # noqa: E501
+        if race_ethnicity not in allowed_values:
+            raise ValueError(
+                "Invalid value for `race_ethnicity` ({0}), must be one of {1}"  # noqa: E501
+                .format(race_ethnicity, allowed_values)
+            )
 
         self._race_ethnicity = race_ethnicity
 

@@ -521,7 +521,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **gender_full_geo_batch**
-> BatchPersonalNameGenderedOut gender_full_geo_batch(batch_personal_name_in=batch_personal_name_in)
+> BatchPersonalNameGenderedOut gender_full_geo_batch(batch_personal_name_geo_in=batch_personal_name_geo_in)
 
 Infer the likely gender of up to 1000 full names, with a given cultural context (country ISO2 code).
 
@@ -543,11 +543,11 @@ configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = openapi_client.PersonalApi(openapi_client.ApiClient(configuration))
-batch_personal_name_in = openapi_client.BatchPersonalNameIn() # BatchPersonalNameIn | A list of personal names (optional)
+batch_personal_name_geo_in = openapi_client.BatchPersonalNameGeoIn() # BatchPersonalNameGeoIn | A list of personal names, with a country ISO2 code (optional)
 
 try:
     # Infer the likely gender of up to 1000 full names, with a given cultural context (country ISO2 code).
-    api_response = api_instance.gender_full_geo_batch(batch_personal_name_in=batch_personal_name_in)
+    api_response = api_instance.gender_full_geo_batch(batch_personal_name_geo_in=batch_personal_name_geo_in)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PersonalApi->gender_full_geo_batch: %s\n" % e)
@@ -557,7 +557,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **batch_personal_name_in** | [**BatchPersonalNameIn**](BatchPersonalNameIn.md)| A list of personal names | [optional] 
+ **batch_personal_name_geo_in** | [**BatchPersonalNameGeoIn**](BatchPersonalNameGeoIn.md)| A list of personal names, with a country ISO2 code | [optional] 
 
 ### Return type
 

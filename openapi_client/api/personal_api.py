@@ -920,7 +920,7 @@ class PersonalApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param BatchPersonalNameIn batch_personal_name_in: A list of personal names
+        :param BatchPersonalNameGeoIn batch_personal_name_geo_in: A list of personal names, with a country ISO2 code
         :return: BatchPersonalNameGenderedOut
                  If the method is called asynchronously,
                  returns the request thread.
@@ -941,7 +941,7 @@ class PersonalApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param BatchPersonalNameIn batch_personal_name_in: A list of personal names
+        :param BatchPersonalNameGeoIn batch_personal_name_geo_in: A list of personal names, with a country ISO2 code
         :return: BatchPersonalNameGenderedOut
                  If the method is called asynchronously,
                  returns the request thread.
@@ -949,7 +949,7 @@ class PersonalApi(object):
 
         local_var_params = locals()
 
-        all_params = ['batch_personal_name_in']  # noqa: E501
+        all_params = ['batch_personal_name_geo_in']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -976,8 +976,8 @@ class PersonalApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'batch_personal_name_in' in local_var_params:
-            body_params = local_var_params['batch_personal_name_in']
+        if 'batch_personal_name_geo_in' in local_var_params:
+            body_params = local_var_params['batch_personal_name_geo_in']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
