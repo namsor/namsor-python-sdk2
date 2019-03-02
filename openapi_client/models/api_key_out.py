@@ -36,6 +36,7 @@ class APIKeyOut(object):
         'user_id': 'str',
         'admin': 'bool',
         'vetted': 'bool',
+        'learnable': 'bool',
         'partner': 'bool',
         'striped': 'bool',
         'corporate': 'bool',
@@ -47,19 +48,21 @@ class APIKeyOut(object):
         'user_id': 'userId',
         'admin': 'admin',
         'vetted': 'vetted',
+        'learnable': 'learnable',
         'partner': 'partner',
         'striped': 'striped',
         'corporate': 'corporate',
         'disabled': 'disabled'
     }
 
-    def __init__(self, api_key=None, user_id=None, admin=None, vetted=None, partner=None, striped=None, corporate=None, disabled=None):  # noqa: E501
+    def __init__(self, api_key=None, user_id=None, admin=None, vetted=None, learnable=None, partner=None, striped=None, corporate=None, disabled=None):  # noqa: E501
         """APIKeyOut - a model defined in OpenAPI"""  # noqa: E501
 
         self._api_key = None
         self._user_id = None
         self._admin = None
         self._vetted = None
+        self._learnable = None
         self._partner = None
         self._striped = None
         self._corporate = None
@@ -74,6 +77,8 @@ class APIKeyOut(object):
             self.admin = admin
         if vetted is not None:
             self.vetted = vetted
+        if learnable is not None:
+            self.learnable = learnable
         if partner is not None:
             self.partner = partner
         if striped is not None:
@@ -166,6 +171,27 @@ class APIKeyOut(object):
         """
 
         self._vetted = vetted
+
+    @property
+    def learnable(self):
+        """Gets the learnable of this APIKeyOut.  # noqa: E501
+
+
+        :return: The learnable of this APIKeyOut.  # noqa: E501
+        :rtype: bool
+        """
+        return self._learnable
+
+    @learnable.setter
+    def learnable(self, learnable):
+        """Sets the learnable of this APIKeyOut.
+
+
+        :param learnable: The learnable of this APIKeyOut.  # noqa: E501
+        :type: bool
+        """
+
+        self._learnable = learnable
 
     @property
     def partner(self):

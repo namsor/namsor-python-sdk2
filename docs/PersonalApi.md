@@ -18,11 +18,15 @@ Method | HTTP request | Description
 [**gender_geo_batch**](PersonalApi.md#gender_geo_batch) | **POST** /api2/json/genderGeoBatch | Infer the likely gender of up to 1000 names, each given a local context (ISO2 country code).
 [**origin**](PersonalApi.md#origin) | **GET** /api2/json/origin/{firstName}/{lastName} | [USES 10 UNITS] Infer the likely country of origin of a personal name. Assumes names as they are in the country of origin. For US, CA, AU, NZ and other melting-pots : use &#39;diaspora&#39; instead.
 [**origin_batch**](PersonalApi.md#origin_batch) | **POST** /api2/json/originBatch | [USES 10 UNITS] Infer the likely country of origin of up to 1000 names, detecting automatically the cultural context.
+[**parse_name**](PersonalApi.md#parse_name) | **GET** /api2/json/parseName/{nameFull} | Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. 
+[**parse_name_batch**](PersonalApi.md#parse_name_batch) | **POST** /api2/json/parseNameBatch | Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John.
+[**parse_name_geo**](PersonalApi.md#parse_name_geo) | **GET** /api2/json/parseName/{nameFull}/{countryIso2} | Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. For better accuracy, provide a geographic context.
+[**parse_name_geo_batch**](PersonalApi.md#parse_name_geo_batch) | **POST** /api2/json/parseNameGeoBatch | Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. Giving a local context improves precision. 
 [**parsed_gender_batch**](PersonalApi.md#parsed_gender_batch) | **POST** /api2/json/parsedGenderBatch | Infer the likely gender of up to 1000 fully parsed names, detecting automatically the cultural context.
 [**parsed_gender_geo_batch**](PersonalApi.md#parsed_gender_geo_batch) | **POST** /api2/json/parsedGenderGeoBatch | Infer the likely gender of up to 1000 fully parsed names, detecting automatically the cultural context.
-[**us_race_ethnicity**](PersonalApi.md#us_race_ethnicity) | **GET** /api2/json/usRaceEthnicity/{firstName}/{lastName} | [USES 10 UNITS] Infer a US resident&#39;s likely race/ethnicity according to US Census taxonomy.
+[**us_race_ethnicity**](PersonalApi.md#us_race_ethnicity) | **GET** /api2/json/usRaceEthnicity/{firstName}/{lastName} | [USES 10 UNITS] Infer a US resident&#39;s likely race/ethnicity according to US Census taxonomy W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
 [**us_race_ethnicity_batch**](PersonalApi.md#us_race_ethnicity_batch) | **POST** /api2/json/usRaceEthnicityBatch | [USES 10 UNITS] Infer up-to 1000 US resident&#39;s likely race/ethnicity according to US Census taxonomy.
-[**us_race_ethnicity_zip5**](PersonalApi.md#us_race_ethnicity_zip5) | **GET** /api2/json/usRaceEthnicityZIP5/{firstName}/{lastName}/{zip5Code} | [USES 10 UNITS] Infer a US resident&#39;s likely race/ethnicity according to US Census taxonomy, using (optional) ZIP5 code info.
+[**us_race_ethnicity_zip5**](PersonalApi.md#us_race_ethnicity_zip5) | **GET** /api2/json/usRaceEthnicityZIP5/{firstName}/{lastName}/{zip5Code} | [USES 10 UNITS] Infer a US resident&#39;s likely race/ethnicity according to US Census taxonomy, using (optional) ZIP5 code info. Output is W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
 [**us_zip_race_ethnicity_batch**](PersonalApi.md#us_zip_race_ethnicity_batch) | **POST** /api2/json/usZipRaceEthnicityBatch | [USES 10 UNITS] Infer up-to 1000 US resident&#39;s likely race/ethnicity according to US Census taxonomy, with (optional) ZIP code.
 
 
@@ -796,6 +800,224 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **parse_name**
+> PersonalNameParsedOut parse_name(name_full)
+
+Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. 
+
+### Example
+
+* Api Key Authentication (api_key): 
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = openapi_client.Configuration()
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openapi_client.PersonalApi(openapi_client.ApiClient(configuration))
+name_full = 'name_full_example' # str | 
+
+try:
+    # Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. 
+    api_response = api_instance.parse_name(name_full)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonalApi->parse_name: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name_full** | **str**|  | 
+
+### Return type
+
+[**PersonalNameParsedOut**](PersonalNameParsedOut.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **parse_name_batch**
+> BatchPersonalNameParsedOut parse_name_batch(batch_personal_name_in=batch_personal_name_in)
+
+Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John.
+
+### Example
+
+* Api Key Authentication (api_key): 
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = openapi_client.Configuration()
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openapi_client.PersonalApi(openapi_client.ApiClient(configuration))
+batch_personal_name_in = openapi_client.BatchPersonalNameIn() # BatchPersonalNameIn | A list of personal names (optional)
+
+try:
+    # Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John.
+    api_response = api_instance.parse_name_batch(batch_personal_name_in=batch_personal_name_in)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonalApi->parse_name_batch: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batch_personal_name_in** | [**BatchPersonalNameIn**](BatchPersonalNameIn.md)| A list of personal names | [optional] 
+
+### Return type
+
+[**BatchPersonalNameParsedOut**](BatchPersonalNameParsedOut.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **parse_name_geo**
+> PersonalNameParsedOut parse_name_geo(name_full, country_iso2)
+
+Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. For better accuracy, provide a geographic context.
+
+### Example
+
+* Api Key Authentication (api_key): 
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = openapi_client.Configuration()
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openapi_client.PersonalApi(openapi_client.ApiClient(configuration))
+name_full = 'name_full_example' # str | 
+country_iso2 = 'country_iso2_example' # str | 
+
+try:
+    # Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. For better accuracy, provide a geographic context.
+    api_response = api_instance.parse_name_geo(name_full, country_iso2)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonalApi->parse_name_geo: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name_full** | **str**|  | 
+ **country_iso2** | **str**|  | 
+
+### Return type
+
+[**PersonalNameParsedOut**](PersonalNameParsedOut.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **parse_name_geo_batch**
+> BatchPersonalNameParsedOut parse_name_geo_batch(batch_personal_name_geo_in=batch_personal_name_geo_in)
+
+Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. Giving a local context improves precision. 
+
+### Example
+
+* Api Key Authentication (api_key): 
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = openapi_client.Configuration()
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openapi_client.PersonalApi(openapi_client.ApiClient(configuration))
+batch_personal_name_geo_in = openapi_client.BatchPersonalNameGeoIn() # BatchPersonalNameGeoIn | A list of personal names (optional)
+
+try:
+    # Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. Giving a local context improves precision. 
+    api_response = api_instance.parse_name_geo_batch(batch_personal_name_geo_in=batch_personal_name_geo_in)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PersonalApi->parse_name_geo_batch: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batch_personal_name_geo_in** | [**BatchPersonalNameGeoIn**](BatchPersonalNameGeoIn.md)| A list of personal names | [optional] 
+
+### Return type
+
+[**BatchPersonalNameParsedOut**](BatchPersonalNameParsedOut.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **parsed_gender_batch**
 > BatchFirstLastNameGenderedOut parsed_gender_batch(batch_parsed_full_name_in=batch_parsed_full_name_in)
 
@@ -907,7 +1129,7 @@ Name | Type | Description  | Notes
 # **us_race_ethnicity**
 > FirstLastNameUSRaceEthnicityOut us_race_ethnicity(first_name, last_name)
 
-[USES 10 UNITS] Infer a US resident's likely race/ethnicity according to US Census taxonomy.
+[USES 10 UNITS] Infer a US resident's likely race/ethnicity according to US Census taxonomy W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
 
 ### Example
 
@@ -931,7 +1153,7 @@ first_name = 'first_name_example' # str |
 last_name = 'last_name_example' # str | 
 
 try:
-    # [USES 10 UNITS] Infer a US resident's likely race/ethnicity according to US Census taxonomy.
+    # [USES 10 UNITS] Infer a US resident's likely race/ethnicity according to US Census taxonomy W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
     api_response = api_instance.us_race_ethnicity(first_name, last_name)
     pprint(api_response)
 except ApiException as e:
@@ -1017,7 +1239,7 @@ Name | Type | Description  | Notes
 # **us_race_ethnicity_zip5**
 > FirstLastNameUSRaceEthnicityOut us_race_ethnicity_zip5(first_name, last_name, zip5_code)
 
-[USES 10 UNITS] Infer a US resident's likely race/ethnicity according to US Census taxonomy, using (optional) ZIP5 code info.
+[USES 10 UNITS] Infer a US resident's likely race/ethnicity according to US Census taxonomy, using (optional) ZIP5 code info. Output is W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
 
 ### Example
 
@@ -1042,7 +1264,7 @@ last_name = 'last_name_example' # str |
 zip5_code = 'zip5_code_example' # str | 
 
 try:
-    # [USES 10 UNITS] Infer a US resident's likely race/ethnicity according to US Census taxonomy, using (optional) ZIP5 code info.
+    # [USES 10 UNITS] Infer a US resident's likely race/ethnicity according to US Census taxonomy, using (optional) ZIP5 code info. Output is W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
     api_response = api_instance.us_race_ethnicity_zip5(first_name, last_name, zip5_code)
     pprint(api_response)
 except ApiException as e:

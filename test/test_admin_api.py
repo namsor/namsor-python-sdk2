@@ -120,6 +120,13 @@ class TestAdminApi(unittest.TestCase):
         """
         pass
 
+    def test_learnable(self):
+        """Test case for learnable
+
+        Activate/deactivate learning from a source.  # noqa: E501
+        """
+        pass
+
     def test_namsor_counter(self):
         """Test case for namsor_counter
 

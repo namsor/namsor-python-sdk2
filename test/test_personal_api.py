@@ -127,6 +127,34 @@ class TestPersonalApi(unittest.TestCase):
         """
         pass
 
+    def test_parse_name(self):
+        """Test case for parse_name
+
+        Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John.   # noqa: E501
+        """
+        pass
+
+    def test_parse_name_batch(self):
+        """Test case for parse_name_batch
+
+        Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John.  # noqa: E501
+        """
+        pass
+
+    def test_parse_name_geo(self):
+        """Test case for parse_name_geo
+
+        Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. For better accuracy, provide a geographic context.  # noqa: E501
+        """
+        pass
+
+    def test_parse_name_geo_batch(self):
+        """Test case for parse_name_geo_batch
+
+        Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. Giving a local context improves precision.   # noqa: E501
+        """
+        pass
+
     def test_parsed_gender_batch(self):
         """Test case for parsed_gender_batch
 
@@ -144,7 +172,7 @@ class TestPersonalApi(unittest.TestCase):
     def test_us_race_ethnicity(self):
         """Test case for us_race_ethnicity
 
-        [USES 10 UNITS] Infer a US resident's likely race/ethnicity according to US Census taxonomy.  # noqa: E501
+        [USES 10 UNITS] Infer a US resident's likely race/ethnicity according to US Census taxonomy W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).  # noqa: E501
         """
         pass
 
@@ -158,7 +186,7 @@ class TestPersonalApi(unittest.TestCase):
     def test_us_race_ethnicity_zip5(self):
         """Test case for us_race_ethnicity_zip5
 
-        [USES 10 UNITS] Infer a US resident's likely race/ethnicity according to US Census taxonomy, using (optional) ZIP5 code info.  # noqa: E501
+        [USES 10 UNITS] Infer a US resident's likely race/ethnicity according to US Census taxonomy, using (optional) ZIP5 code info. Output is W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).  # noqa: E501
         """
         pass
 

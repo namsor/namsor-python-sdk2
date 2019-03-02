@@ -89,6 +89,7 @@ Class | Method | HTTP request | Description
 *AdminApi* | [**corporate_key**](docs/AdminApi.md#corporate_key) | **GET** /api2/json/corporateKey/{apiKey}/{corporate} | Setting an API Key to a corporate status.
 *AdminApi* | [**debug_level**](docs/AdminApi.md#debug_level) | **GET** /api2/json/debugLevel/{logger}/{level} | Update debug level for a classifier
 *AdminApi* | [**invalidate_cache**](docs/AdminApi.md#invalidate_cache) | **GET** /api2/json/invalidateCache | Invalidate system caches.
+*AdminApi* | [**learnable**](docs/AdminApi.md#learnable) | **GET** /api2/json/learnable/{source}/{learnable} | Activate/deactivate learning from a source.
 *AdminApi* | [**namsor_counter**](docs/AdminApi.md#namsor_counter) | **GET** /api2/json/namsorCounter | Get the overall API counter
 *AdminApi* | [**payment_info**](docs/AdminApi.md#payment_info) | **GET** /api2/json/paymentInfo/{token} | Get the Stripe payment information associated with the current google auth session token.
 *AdminApi* | [**procure_key**](docs/AdminApi.md#procure_key) | **GET** /api2/json/procureKey/{token} | Procure an API Key (sent via Email), based on an auth token. Keep your API Key secret.
@@ -126,14 +127,20 @@ Class | Method | HTTP request | Description
 *PersonalApi* | [**gender_geo_batch**](docs/PersonalApi.md#gender_geo_batch) | **POST** /api2/json/genderGeoBatch | Infer the likely gender of up to 1000 names, each given a local context (ISO2 country code).
 *PersonalApi* | [**origin**](docs/PersonalApi.md#origin) | **GET** /api2/json/origin/{firstName}/{lastName} | [USES 10 UNITS] Infer the likely country of origin of a personal name. Assumes names as they are in the country of origin. For US, CA, AU, NZ and other melting-pots : use &#39;diaspora&#39; instead.
 *PersonalApi* | [**origin_batch**](docs/PersonalApi.md#origin_batch) | **POST** /api2/json/originBatch | [USES 10 UNITS] Infer the likely country of origin of up to 1000 names, detecting automatically the cultural context.
+*PersonalApi* | [**parse_name**](docs/PersonalApi.md#parse_name) | **GET** /api2/json/parseName/{nameFull} | Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. 
+*PersonalApi* | [**parse_name_batch**](docs/PersonalApi.md#parse_name_batch) | **POST** /api2/json/parseNameBatch | Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John.
+*PersonalApi* | [**parse_name_geo**](docs/PersonalApi.md#parse_name_geo) | **GET** /api2/json/parseName/{nameFull}/{countryIso2} | Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. For better accuracy, provide a geographic context.
+*PersonalApi* | [**parse_name_geo_batch**](docs/PersonalApi.md#parse_name_geo_batch) | **POST** /api2/json/parseNameGeoBatch | Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. Giving a local context improves precision. 
 *PersonalApi* | [**parsed_gender_batch**](docs/PersonalApi.md#parsed_gender_batch) | **POST** /api2/json/parsedGenderBatch | Infer the likely gender of up to 1000 fully parsed names, detecting automatically the cultural context.
 *PersonalApi* | [**parsed_gender_geo_batch**](docs/PersonalApi.md#parsed_gender_geo_batch) | **POST** /api2/json/parsedGenderGeoBatch | Infer the likely gender of up to 1000 fully parsed names, detecting automatically the cultural context.
-*PersonalApi* | [**us_race_ethnicity**](docs/PersonalApi.md#us_race_ethnicity) | **GET** /api2/json/usRaceEthnicity/{firstName}/{lastName} | [USES 10 UNITS] Infer a US resident&#39;s likely race/ethnicity according to US Census taxonomy.
+*PersonalApi* | [**us_race_ethnicity**](docs/PersonalApi.md#us_race_ethnicity) | **GET** /api2/json/usRaceEthnicity/{firstName}/{lastName} | [USES 10 UNITS] Infer a US resident&#39;s likely race/ethnicity according to US Census taxonomy W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
 *PersonalApi* | [**us_race_ethnicity_batch**](docs/PersonalApi.md#us_race_ethnicity_batch) | **POST** /api2/json/usRaceEthnicityBatch | [USES 10 UNITS] Infer up-to 1000 US resident&#39;s likely race/ethnicity according to US Census taxonomy.
-*PersonalApi* | [**us_race_ethnicity_zip5**](docs/PersonalApi.md#us_race_ethnicity_zip5) | **GET** /api2/json/usRaceEthnicityZIP5/{firstName}/{lastName}/{zip5Code} | [USES 10 UNITS] Infer a US resident&#39;s likely race/ethnicity according to US Census taxonomy, using (optional) ZIP5 code info.
+*PersonalApi* | [**us_race_ethnicity_zip5**](docs/PersonalApi.md#us_race_ethnicity_zip5) | **GET** /api2/json/usRaceEthnicityZIP5/{firstName}/{lastName}/{zip5Code} | [USES 10 UNITS] Infer a US resident&#39;s likely race/ethnicity according to US Census taxonomy, using (optional) ZIP5 code info. Output is W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino).
 *PersonalApi* | [**us_zip_race_ethnicity_batch**](docs/PersonalApi.md#us_zip_race_ethnicity_batch) | **POST** /api2/json/usZipRaceEthnicityBatch | [USES 10 UNITS] Infer up-to 1000 US resident&#39;s likely race/ethnicity according to US Census taxonomy, with (optional) ZIP code.
-*SocialApi* | [**phone_prefix**](docs/SocialApi.md#phone_prefix) | **GET** /api2/json/phoneCode/{firstName}/{lastName}/{phoneNumber} | [USES 11 UNITS] Infer the likely country and phone prefix, given a personal name and formatted / unformatted phone number.
-*SocialApi* | [**phone_prefix_batch**](docs/SocialApi.md#phone_prefix_batch) | **POST** /api2/json/phoneCodeBatch | [USES 11 UNITS] Infer the likely country and phone prefix, of up to 1000 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.
+*SocialApi* | [**phone_code**](docs/SocialApi.md#phone_code) | **GET** /api2/json/phoneCode/{firstName}/{lastName}/{phoneNumber} | [USES 11 UNITS] Infer the likely country and phone prefix, given a personal name and formatted / unformatted phone number.
+*SocialApi* | [**phone_code_batch**](docs/SocialApi.md#phone_code_batch) | **POST** /api2/json/phoneCodeBatch | [USES 11 UNITS] Infer the likely country and phone prefix, of up to 1000 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.
+*SocialApi* | [**phone_code_geo**](docs/SocialApi.md#phone_code_geo) | **GET** /api2/json/phoneCodeGeo/{firstName}/{lastName}/{phoneNumber}/{countryIso2} | [USES 11 UNITS] Infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
+*SocialApi* | [**phone_code_geo_batch**](docs/SocialApi.md#phone_code_geo_batch) | **POST** /api2/json/phoneCodeGeoBatch | [USES 11 UNITS] Infer the likely country and phone prefix, of up to 1000 personal names, with a local context (ISO2 country of residence).
 
 
 ## Documentation For Models
@@ -156,6 +163,7 @@ Class | Method | HTTP request | Description
  - [BatchFirstLastNameIn](docs/BatchFirstLastNameIn.md)
  - [BatchFirstLastNameOriginedOut](docs/BatchFirstLastNameOriginedOut.md)
  - [BatchFirstLastNamePhoneCodedOut](docs/BatchFirstLastNamePhoneCodedOut.md)
+ - [BatchFirstLastNamePhoneNumberGeoIn](docs/BatchFirstLastNamePhoneNumberGeoIn.md)
  - [BatchFirstLastNamePhoneNumberIn](docs/BatchFirstLastNamePhoneNumberIn.md)
  - [BatchFirstLastNameUSRaceEthnicityOut](docs/BatchFirstLastNameUSRaceEthnicityOut.md)
  - [BatchNameMatchCandidatesOut](docs/BatchNameMatchCandidatesOut.md)
@@ -165,6 +173,7 @@ Class | Method | HTTP request | Description
  - [BatchPersonalNameGeoIn](docs/BatchPersonalNameGeoIn.md)
  - [BatchPersonalNameGeoOut](docs/BatchPersonalNameGeoOut.md)
  - [BatchPersonalNameIn](docs/BatchPersonalNameIn.md)
+ - [BatchPersonalNameParsedOut](docs/BatchPersonalNameParsedOut.md)
  - [BillingHistoryOut](docs/BillingHistoryOut.md)
  - [BillingInfoInOut](docs/BillingInfoInOut.md)
  - [ClassifierMetricsOut](docs/ClassifierMetricsOut.md)
@@ -178,7 +187,9 @@ Class | Method | HTTP request | Description
  - [FirstLastNameGeoZippedIn](docs/FirstLastNameGeoZippedIn.md)
  - [FirstLastNameIn](docs/FirstLastNameIn.md)
  - [FirstLastNameOriginedOut](docs/FirstLastNameOriginedOut.md)
+ - [FirstLastNameOut](docs/FirstLastNameOut.md)
  - [FirstLastNamePhoneCodedOut](docs/FirstLastNamePhoneCodedOut.md)
+ - [FirstLastNamePhoneNumberGeoIn](docs/FirstLastNamePhoneNumberGeoIn.md)
  - [FirstLastNamePhoneNumberIn](docs/FirstLastNamePhoneNumberIn.md)
  - [FirstLastNameUSRaceEthnicityOut](docs/FirstLastNameUSRaceEthnicityOut.md)
  - [InlineObject](docs/InlineObject.md)
@@ -193,6 +204,7 @@ Class | Method | HTTP request | Description
  - [PersonalNameGeoIn](docs/PersonalNameGeoIn.md)
  - [PersonalNameGeoOut](docs/PersonalNameGeoOut.md)
  - [PersonalNameIn](docs/PersonalNameIn.md)
+ - [PersonalNameParsedOut](docs/PersonalNameParsedOut.md)
  - [RomanizedNameOut](docs/RomanizedNameOut.md)
  - [SoftwareVersionOut](docs/SoftwareVersionOut.md)
  - [SourceDetailedMetricsOut](docs/SourceDetailedMetricsOut.md)

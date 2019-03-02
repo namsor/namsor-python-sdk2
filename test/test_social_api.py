@@ -29,17 +29,31 @@ class TestSocialApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_phone_prefix(self):
-        """Test case for phone_prefix
+    def test_phone_code(self):
+        """Test case for phone_code
 
         [USES 11 UNITS] Infer the likely country and phone prefix, given a personal name and formatted / unformatted phone number.  # noqa: E501
         """
         pass
 
-    def test_phone_prefix_batch(self):
-        """Test case for phone_prefix_batch
+    def test_phone_code_batch(self):
+        """Test case for phone_code_batch
 
         [USES 11 UNITS] Infer the likely country and phone prefix, of up to 1000 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.  # noqa: E501
+        """
+        pass
+
+    def test_phone_code_geo(self):
+        """Test case for phone_code_geo
+
+        [USES 11 UNITS] Infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).  # noqa: E501
+        """
+        pass
+
+    def test_phone_code_geo_batch(self):
+        """Test case for phone_code_geo_batch
+
+        [USES 11 UNITS] Infer the likely country and phone prefix, of up to 1000 personal names, with a local context (ISO2 country of residence).  # noqa: E501
         """
         pass
 

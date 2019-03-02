@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **user_id** | **str** |  | [optional] 
 **admin** | **bool** |  | [optional] 
 **vetted** | **bool** |  | [optional] 
+**learnable** | **bool** |  | [optional] 
 **partner** | **bool** |  | [optional] 
 **striped** | **bool** |  | [optional] 
 **corporate** | **bool** |  | [optional] 
