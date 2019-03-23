@@ -88,6 +88,7 @@ Class | Method | HTTP request | Description
 *AdminApi* | [**charge**](docs/AdminApi.md#charge) | **POST** /api2/json/charge | Create a Stripe Customer, based on a payment card token (from secure StripeJS) and email.
 *AdminApi* | [**corporate_key**](docs/AdminApi.md#corporate_key) | **GET** /api2/json/corporateKey/{apiKey}/{corporate} | Setting an API Key to a corporate status.
 *AdminApi* | [**debug_level**](docs/AdminApi.md#debug_level) | **GET** /api2/json/debugLevel/{logger}/{level} | Update debug level for a classifier
+*AdminApi* | [**flush**](docs/AdminApi.md#flush) | **GET** /api2/json/flush | Flush counters.
 *AdminApi* | [**invalidate_cache**](docs/AdminApi.md#invalidate_cache) | **GET** /api2/json/invalidateCache | Invalidate system caches.
 *AdminApi* | [**learnable**](docs/AdminApi.md#learnable) | **GET** /api2/json/learnable/{source}/{learnable} | Activate/deactivate learning from a source.
 *AdminApi* | [**namsor_counter**](docs/AdminApi.md#namsor_counter) | **GET** /api2/json/namsorCounter | Get the overall API counter
@@ -141,6 +142,7 @@ Class | Method | HTTP request | Description
 *SocialApi* | [**phone_code_batch**](docs/SocialApi.md#phone_code_batch) | **POST** /api2/json/phoneCodeBatch | [USES 11 UNITS] Infer the likely country and phone prefix, of up to 1000 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.
 *SocialApi* | [**phone_code_geo**](docs/SocialApi.md#phone_code_geo) | **GET** /api2/json/phoneCodeGeo/{firstName}/{lastName}/{phoneNumber}/{countryIso2} | [USES 11 UNITS] Infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
 *SocialApi* | [**phone_code_geo_batch**](docs/SocialApi.md#phone_code_geo_batch) | **POST** /api2/json/phoneCodeGeoBatch | [USES 11 UNITS] Infer the likely country and phone prefix, of up to 1000 personal names, with a local context (ISO2 country of residence).
+*SocialApi* | [**phone_code_geo_feedback_loop**](docs/SocialApi.md#phone_code_geo_feedback_loop) | **GET** /api2/json/phoneCodeGeoFeedbackLoop/{firstName}/{lastName}/{phoneNumber}/{phoneNumberE164}/{countryIso2} | [CREDITS 1 UNIT] Feedback loop to better infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
 
 
 ## Documentation For Models
@@ -180,6 +182,7 @@ Class | Method | HTTP request | Description
  - [CurrenciesOut](docs/CurrenciesOut.md)
  - [DeployUIOut](docs/DeployUIOut.md)
  - [ExpectedClassMetricsOut](docs/ExpectedClassMetricsOut.md)
+ - [FeedbackLoopOut](docs/FeedbackLoopOut.md)
  - [FirstLastNameDiasporaedOut](docs/FirstLastNameDiasporaedOut.md)
  - [FirstLastNameGenderIn](docs/FirstLastNameGenderIn.md)
  - [FirstLastNameGenderedOut](docs/FirstLastNameGenderedOut.md)

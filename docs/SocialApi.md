@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**phone_code_batch**](SocialApi.md#phone_code_batch) | **POST** /api2/json/phoneCodeBatch | [USES 11 UNITS] Infer the likely country and phone prefix, of up to 1000 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.
 [**phone_code_geo**](SocialApi.md#phone_code_geo) | **GET** /api2/json/phoneCodeGeo/{firstName}/{lastName}/{phoneNumber}/{countryIso2} | [USES 11 UNITS] Infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
 [**phone_code_geo_batch**](SocialApi.md#phone_code_geo_batch) | **POST** /api2/json/phoneCodeGeoBatch | [USES 11 UNITS] Infer the likely country and phone prefix, of up to 1000 personal names, with a local context (ISO2 country of residence).
+[**phone_code_geo_feedback_loop**](SocialApi.md#phone_code_geo_feedback_loop) | **GET** /api2/json/phoneCodeGeoFeedbackLoop/{firstName}/{lastName}/{phoneNumber}/{phoneNumberE164}/{countryIso2} | [CREDITS 1 UNIT] Feedback loop to better infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
 
 
 # **phone_code**
@@ -232,6 +233,68 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **phone_code_geo_feedback_loop**
+> FirstLastNamePhoneCodedOut phone_code_geo_feedback_loop(first_name, last_name, phone_number, phone_number_e164, country_iso2)
+
+[CREDITS 1 UNIT] Feedback loop to better infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
+
+### Example
+
+* Api Key Authentication (api_key): 
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = openapi_client.Configuration()
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openapi_client.SocialApi(openapi_client.ApiClient(configuration))
+first_name = 'first_name_example' # str | 
+last_name = 'last_name_example' # str | 
+phone_number = 'phone_number_example' # str | 
+phone_number_e164 = 'phone_number_e164_example' # str | 
+country_iso2 = 'country_iso2_example' # str | 
+
+try:
+    # [CREDITS 1 UNIT] Feedback loop to better infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
+    api_response = api_instance.phone_code_geo_feedback_loop(first_name, last_name, phone_number, phone_number_e164, country_iso2)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SocialApi->phone_code_geo_feedback_loop: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **first_name** | **str**|  | 
+ **last_name** | **str**|  | 
+ **phone_number** | **str**|  | 
+ **phone_number_e164** | **str**|  | 
+ **country_iso2** | **str**|  | 
+
+### Return type
+
+[**FirstLastNamePhoneCodedOut**](FirstLastNamePhoneCodedOut.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

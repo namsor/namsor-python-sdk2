@@ -50,6 +50,7 @@ from openapi_client.models.classifier_metrics_out import ClassifierMetricsOut
 from openapi_client.models.currencies_out import CurrenciesOut
 from openapi_client.models.deploy_ui_out import DeployUIOut
 from openapi_client.models.expected_class_metrics_out import ExpectedClassMetricsOut
+from openapi_client.models.feedback_loop_out import FeedbackLoopOut
 from openapi_client.models.first_last_name_diasporaed_out import FirstLastNameDiasporaedOut
 from openapi_client.models.first_last_name_gender_in import FirstLastNameGenderIn
 from openapi_client.models.first_last_name_gendered_out import FirstLastNameGenderedOut

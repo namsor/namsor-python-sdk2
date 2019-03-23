@@ -113,6 +113,13 @@ class TestAdminApi(unittest.TestCase):
         """
         pass
 
+    def test_flush(self):
+        """Test case for flush
+
+        Flush counters.  # noqa: E501
+        """
+        pass
+
     def test_invalidate_cache(self):
         """Test case for invalidate_cache
 

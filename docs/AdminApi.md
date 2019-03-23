@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**charge**](AdminApi.md#charge) | **POST** /api2/json/charge | Create a Stripe Customer, based on a payment card token (from secure StripeJS) and email.
 [**corporate_key**](AdminApi.md#corporate_key) | **GET** /api2/json/corporateKey/{apiKey}/{corporate} | Setting an API Key to a corporate status.
 [**debug_level**](AdminApi.md#debug_level) | **GET** /api2/json/debugLevel/{logger}/{level} | Update debug level for a classifier
+[**flush**](AdminApi.md#flush) | **GET** /api2/json/flush | Flush counters.
 [**invalidate_cache**](AdminApi.md#invalidate_cache) | **GET** /api2/json/invalidateCache | Invalidate system caches.
 [**learnable**](AdminApi.md#learnable) | **GET** /api2/json/learnable/{source}/{learnable} | Activate/deactivate learning from a source.
 [**namsor_counter**](AdminApi.md#namsor_counter) | **GET** /api2/json/namsorCounter | Get the overall API counter
@@ -649,6 +650,55 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **logger** | **str**|  | 
  **level** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **flush**
+> flush()
+
+Flush counters.
+
+### Example
+
+* Api Key Authentication (api_key): 
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = openapi_client.Configuration()
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openapi_client.AdminApi(openapi_client.ApiClient(configuration))
+
+try:
+    # Flush counters.
+    api_instance.flush()
+except ApiException as e:
+    print("Exception when calling AdminApi->flush: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
 
 ### Return type
 

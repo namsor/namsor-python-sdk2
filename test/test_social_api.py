@@ -57,6 +57,13 @@ class TestSocialApi(unittest.TestCase):
         """
         pass
 
+    def test_phone_code_geo_feedback_loop(self):
+        """Test case for phone_code_geo_feedback_loop
+
+        [CREDITS 1 UNIT] Feedback loop to better infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()
