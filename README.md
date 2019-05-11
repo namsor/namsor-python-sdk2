@@ -60,13 +60,16 @@ configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = openapi_client.AdminApi(openapi_client.ApiClient(configuration))
+api_key = 'api_key_example' # str | 
+usage_credits = 56 # int | 
+user_message = 'user_message_example' # str | 
 
 try:
-    # Print current API usage.
-    api_response = api_instance.api_usage()
+    # Add usage credits to an API Key.
+    api_response = api_instance.add_credits(api_key, usage_credits, user_message)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AdminApi->api_usage: %s\n" % e)
+    print("Exception when calling AdminApi->add_credits: %s\n" % e)
 
 ```
 
@@ -76,11 +79,12 @@ All URIs are relative to *https://v2.namsor.com/NamSorAPIv2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AdminApi* | [**add_credits**](docs/AdminApi.md#add_credits) | **GET** /api2/json/addCredits/{apiKey}/{usageCredits}/{userMessage} | Add usage credits to an API Key.
 *AdminApi* | [**api_usage**](docs/AdminApi.md#api_usage) | **GET** /api2/json/apiUsage | Print current API usage.
 *AdminApi* | [**api_usage_history**](docs/AdminApi.md#api_usage_history) | **GET** /api2/json/apiUsageHistory | Print historical API usage.
 *AdminApi* | [**api_usage_history_aggregate**](docs/AdminApi.md#api_usage_history_aggregate) | **GET** /api2/json/apiUsageHistoryAggregate | Print historical API usage (in an aggregated view, by service, by day/hour/min).
-*AdminApi* | [**available_plans**](docs/AdminApi.md#available_plans) | **GET** /api2/json/availablePlans | List all available plans in the default currency (usd).
-*AdminApi* | [**available_plans1**](docs/AdminApi.md#available_plans1) | **GET** /api2/json/availablePlans/{token} | List all available plans in the user&#39;s preferred currency.
+*AdminApi* | [**available_plans**](docs/AdminApi.md#available_plans) | **GET** /api2/json/availablePlans/{token} | List all available plans in the user&#39;s preferred currency.
+*AdminApi* | [**available_plans1**](docs/AdminApi.md#available_plans1) | **GET** /api2/json/availablePlans | List all available plans in the default currency (usd).
 *AdminApi* | [**available_services**](docs/AdminApi.md#available_services) | **GET** /api2/json/apiServices | List of API services and usage cost in Units (default is 1&#x3D;ONE Unit).
 *AdminApi* | [**billing_currencies**](docs/AdminApi.md#billing_currencies) | **GET** /api2/json/billingCurrencies | List possible currency options for billing (USD, EUR, GBP, ...)
 *AdminApi* | [**billing_history**](docs/AdminApi.md#billing_history) | **GET** /api2/json/billingHistory/{token} | Read the history billing information (invoices paid via Stripe or manually).

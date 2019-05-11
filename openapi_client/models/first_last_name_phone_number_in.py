@@ -35,23 +35,26 @@ class FirstLastNamePhoneNumberIn(object):
         'id': 'str',
         'first_name': 'str',
         'last_name': 'str',
-        'phone_number': 'str'
+        'phone_number': 'str',
+        'first_last_name_origined_out': 'FirstLastNameOriginedOut'
     }
 
     attribute_map = {
         'id': 'id',
         'first_name': 'firstName',
         'last_name': 'lastName',
-        'phone_number': 'phoneNumber'
+        'phone_number': 'phoneNumber',
+        'first_last_name_origined_out': 'FirstLastNameOriginedOut'
     }
 
-    def __init__(self, id=None, first_name=None, last_name=None, phone_number=None):  # noqa: E501
+    def __init__(self, id=None, first_name=None, last_name=None, phone_number=None, first_last_name_origined_out=None):  # noqa: E501
         """FirstLastNamePhoneNumberIn - a model defined in OpenAPI"""  # noqa: E501
 
         self._id = None
         self._first_name = None
         self._last_name = None
         self._phone_number = None
+        self._first_last_name_origined_out = None
         self.discriminator = None
 
         if id is not None:
@@ -62,6 +65,8 @@ class FirstLastNamePhoneNumberIn(object):
             self.last_name = last_name
         if phone_number is not None:
             self.phone_number = phone_number
+        if first_last_name_origined_out is not None:
+            self.first_last_name_origined_out = first_last_name_origined_out
 
     @property
     def id(self):
@@ -146,6 +151,27 @@ class FirstLastNamePhoneNumberIn(object):
         """
 
         self._phone_number = phone_number
+
+    @property
+    def first_last_name_origined_out(self):
+        """Gets the first_last_name_origined_out of this FirstLastNamePhoneNumberIn.  # noqa: E501
+
+
+        :return: The first_last_name_origined_out of this FirstLastNamePhoneNumberIn.  # noqa: E501
+        :rtype: FirstLastNameOriginedOut
+        """
+        return self._first_last_name_origined_out
+
+    @first_last_name_origined_out.setter
+    def first_last_name_origined_out(self, first_last_name_origined_out):
+        """Sets the first_last_name_origined_out of this FirstLastNamePhoneNumberIn.
+
+
+        :param first_last_name_origined_out: The first_last_name_origined_out of this FirstLastNamePhoneNumberIn.  # noqa: E501
+        :type: FirstLastNameOriginedOut
+        """
+
+        self._first_last_name_origined_out = first_last_name_origined_out
 
     def to_dict(self):
         """Returns the model properties as a dict"""

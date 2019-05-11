@@ -29,6 +29,13 @@ class TestAdminApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_add_credits(self):
+        """Test case for add_credits
+
+        Add usage credits to an API Key.  # noqa: E501
+        """
+        pass
+
     def test_api_usage(self):
         """Test case for api_usage
 
@@ -53,14 +60,14 @@ class TestAdminApi(unittest.TestCase):
     def test_available_plans(self):
         """Test case for available_plans
 
-        List all available plans in the default currency (usd).  # noqa: E501
+        List all available plans in the user's preferred currency.  # noqa: E501
         """
         pass
 
     def test_available_plans1(self):
         """Test case for available_plans1
 
-        List all available plans in the user's preferred currency.  # noqa: E501
+        List all available plans in the default currency (usd).  # noqa: E501
         """
         pass
 

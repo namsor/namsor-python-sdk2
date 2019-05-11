@@ -33,6 +33,116 @@ class AdminApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def add_credits(self, api_key, usage_credits, user_message, **kwargs):  # noqa: E501
+        """Add usage credits to an API Key.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_credits(api_key, usage_credits, user_message, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str api_key: (required)
+        :param int usage_credits: (required)
+        :param str user_message: (required)
+        :return: SystemMetricsOut
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.add_credits_with_http_info(api_key, usage_credits, user_message, **kwargs)  # noqa: E501
+        else:
+            (data) = self.add_credits_with_http_info(api_key, usage_credits, user_message, **kwargs)  # noqa: E501
+            return data
+
+    def add_credits_with_http_info(self, api_key, usage_credits, user_message, **kwargs):  # noqa: E501
+        """Add usage credits to an API Key.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_credits_with_http_info(api_key, usage_credits, user_message, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str api_key: (required)
+        :param int usage_credits: (required)
+        :param str user_message: (required)
+        :return: SystemMetricsOut
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['api_key', 'usage_credits', 'user_message']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method add_credits" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'api_key' is set
+        if ('api_key' not in local_var_params or
+                local_var_params['api_key'] is None):
+            raise ValueError("Missing the required parameter `api_key` when calling `add_credits`")  # noqa: E501
+        # verify the required parameter 'usage_credits' is set
+        if ('usage_credits' not in local_var_params or
+                local_var_params['usage_credits'] is None):
+            raise ValueError("Missing the required parameter `usage_credits` when calling `add_credits`")  # noqa: E501
+        # verify the required parameter 'user_message' is set
+        if ('user_message' not in local_var_params or
+                local_var_params['user_message'] is None):
+            raise ValueError("Missing the required parameter `user_message` when calling `add_credits`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'api_key' in local_var_params:
+            path_params['apiKey'] = local_var_params['api_key']  # noqa: E501
+        if 'usage_credits' in local_var_params:
+            path_params['usageCredits'] = local_var_params['usage_credits']  # noqa: E501
+        if 'user_message' in local_var_params:
+            path_params['userMessage'] = local_var_params['user_message']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api2/json/addCredits/{apiKey}/{usageCredits}/{userMessage}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='SystemMetricsOut',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def api_usage(self, **kwargs):  # noqa: E501
         """Print current API usage.  # noqa: E501
 
@@ -291,12 +401,106 @@ class AdminApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def available_plans(self, **kwargs):  # noqa: E501
+    def available_plans(self, token, **kwargs):  # noqa: E501
+        """List all available plans in the user's preferred currency.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.available_plans(token, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str token: (required)
+        :return: APIPlansOut
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.available_plans_with_http_info(token, **kwargs)  # noqa: E501
+        else:
+            (data) = self.available_plans_with_http_info(token, **kwargs)  # noqa: E501
+            return data
+
+    def available_plans_with_http_info(self, token, **kwargs):  # noqa: E501
+        """List all available plans in the user's preferred currency.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.available_plans_with_http_info(token, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str token: (required)
+        :return: APIPlansOut
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['token']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method available_plans" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'token' is set
+        if ('token' not in local_var_params or
+                local_var_params['token'] is None):
+            raise ValueError("Missing the required parameter `token` when calling `available_plans`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'token' in local_var_params:
+            path_params['token'] = local_var_params['token']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api2/json/availablePlans/{token}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='APIPlansOut',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def available_plans1(self, **kwargs):  # noqa: E501
         """List all available plans in the default currency (usd).  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.available_plans(async_req=True)
+        >>> thread = api.available_plans1(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -306,17 +510,17 @@ class AdminApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.available_plans_with_http_info(**kwargs)  # noqa: E501
+            return self.available_plans1_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.available_plans_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.available_plans1_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def available_plans_with_http_info(self, **kwargs):  # noqa: E501
+    def available_plans1_with_http_info(self, **kwargs):  # noqa: E501
         """List all available plans in the default currency (usd).  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.available_plans_with_http_info(async_req=True)
+        >>> thread = api.available_plans1_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -337,7 +541,7 @@ class AdminApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method available_plans" % key
+                    " to method available_plans1" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
@@ -363,100 +567,6 @@ class AdminApi(object):
 
         return self.api_client.call_api(
             '/api2/json/availablePlans', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='APIPlansOut',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def available_plans1(self, token, **kwargs):  # noqa: E501
-        """List all available plans in the user's preferred currency.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.available_plans1(token, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str token: (required)
-        :return: APIPlansOut
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.available_plans1_with_http_info(token, **kwargs)  # noqa: E501
-        else:
-            (data) = self.available_plans1_with_http_info(token, **kwargs)  # noqa: E501
-            return data
-
-    def available_plans1_with_http_info(self, token, **kwargs):  # noqa: E501
-        """List all available plans in the user's preferred currency.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.available_plans1_with_http_info(token, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str token: (required)
-        :return: APIPlansOut
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['token']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method available_plans1" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'token' is set
-        if ('token' not in local_var_params or
-                local_var_params['token'] is None):
-            raise ValueError("Missing the required parameter `token` when calling `available_plans1`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'token' in local_var_params:
-            path_params['token'] = local_var_params['token']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['api_key']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/api2/json/availablePlans/{token}', 'GET',
             path_params,
             query_params,
             header_params,

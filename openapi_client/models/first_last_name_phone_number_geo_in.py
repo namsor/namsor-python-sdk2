@@ -36,6 +36,7 @@ class FirstLastNamePhoneNumberGeoIn(object):
         'first_name': 'str',
         'last_name': 'str',
         'phone_number': 'str',
+        'first_last_name_origined_out': 'FirstLastNameOriginedOut',
         'country_iso2': 'str',
         'country_iso2_alt': 'str'
     }
@@ -45,17 +46,19 @@ class FirstLastNamePhoneNumberGeoIn(object):
         'first_name': 'firstName',
         'last_name': 'lastName',
         'phone_number': 'phoneNumber',
+        'first_last_name_origined_out': 'FirstLastNameOriginedOut',
         'country_iso2': 'countryIso2',
         'country_iso2_alt': 'countryIso2Alt'
     }
 
-    def __init__(self, id=None, first_name=None, last_name=None, phone_number=None, country_iso2=None, country_iso2_alt=None):  # noqa: E501
+    def __init__(self, id=None, first_name=None, last_name=None, phone_number=None, first_last_name_origined_out=None, country_iso2=None, country_iso2_alt=None):  # noqa: E501
         """FirstLastNamePhoneNumberGeoIn - a model defined in OpenAPI"""  # noqa: E501
 
         self._id = None
         self._first_name = None
         self._last_name = None
         self._phone_number = None
+        self._first_last_name_origined_out = None
         self._country_iso2 = None
         self._country_iso2_alt = None
         self.discriminator = None
@@ -68,6 +71,8 @@ class FirstLastNamePhoneNumberGeoIn(object):
             self.last_name = last_name
         if phone_number is not None:
             self.phone_number = phone_number
+        if first_last_name_origined_out is not None:
+            self.first_last_name_origined_out = first_last_name_origined_out
         if country_iso2 is not None:
             self.country_iso2 = country_iso2
         if country_iso2_alt is not None:
@@ -156,6 +161,27 @@ class FirstLastNamePhoneNumberGeoIn(object):
         """
 
         self._phone_number = phone_number
+
+    @property
+    def first_last_name_origined_out(self):
+        """Gets the first_last_name_origined_out of this FirstLastNamePhoneNumberGeoIn.  # noqa: E501
+
+
+        :return: The first_last_name_origined_out of this FirstLastNamePhoneNumberGeoIn.  # noqa: E501
+        :rtype: FirstLastNameOriginedOut
+        """
+        return self._first_last_name_origined_out
+
+    @first_last_name_origined_out.setter
+    def first_last_name_origined_out(self, first_last_name_origined_out):
+        """Sets the first_last_name_origined_out of this FirstLastNamePhoneNumberGeoIn.
+
+
+        :param first_last_name_origined_out: The first_last_name_origined_out of this FirstLastNamePhoneNumberGeoIn.  # noqa: E501
+        :type: FirstLastNameOriginedOut
+        """
+
+        self._first_last_name_origined_out = first_last_name_origined_out
 
     @property
     def country_iso2(self):

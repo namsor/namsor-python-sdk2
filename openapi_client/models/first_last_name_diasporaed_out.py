@@ -38,6 +38,7 @@ class FirstLastNameDiasporaedOut(object):
         'score': 'float',
         'ethnicity_alt': 'str',
         'ethnicity': 'str',
+        'lifted': 'bool',
         'country_iso2': 'str'
     }
 
@@ -48,10 +49,11 @@ class FirstLastNameDiasporaedOut(object):
         'score': 'score',
         'ethnicity_alt': 'ethnicityAlt',
         'ethnicity': 'ethnicity',
+        'lifted': 'lifted',
         'country_iso2': 'countryIso2'
     }
 
-    def __init__(self, id=None, first_name=None, last_name=None, score=None, ethnicity_alt=None, ethnicity=None, country_iso2=None):  # noqa: E501
+    def __init__(self, id=None, first_name=None, last_name=None, score=None, ethnicity_alt=None, ethnicity=None, lifted=None, country_iso2=None):  # noqa: E501
         """FirstLastNameDiasporaedOut - a model defined in OpenAPI"""  # noqa: E501
 
         self._id = None
@@ -60,6 +62,7 @@ class FirstLastNameDiasporaedOut(object):
         self._score = None
         self._ethnicity_alt = None
         self._ethnicity = None
+        self._lifted = None
         self._country_iso2 = None
         self.discriminator = None
 
@@ -75,6 +78,8 @@ class FirstLastNameDiasporaedOut(object):
             self.ethnicity_alt = ethnicity_alt
         if ethnicity is not None:
             self.ethnicity = ethnicity
+        if lifted is not None:
+            self.lifted = lifted
         if country_iso2 is not None:
             self.country_iso2 = country_iso2
 
@@ -205,6 +210,27 @@ class FirstLastNameDiasporaedOut(object):
         """
 
         self._ethnicity = ethnicity
+
+    @property
+    def lifted(self):
+        """Gets the lifted of this FirstLastNameDiasporaedOut.  # noqa: E501
+
+
+        :return: The lifted of this FirstLastNameDiasporaedOut.  # noqa: E501
+        :rtype: bool
+        """
+        return self._lifted
+
+    @lifted.setter
+    def lifted(self, lifted):
+        """Sets the lifted of this FirstLastNameDiasporaedOut.
+
+
+        :param lifted: The lifted of this FirstLastNameDiasporaedOut.  # noqa: E501
+        :type: bool
+        """
+
+        self._lifted = lifted
 
     @property
     def country_iso2(self):
