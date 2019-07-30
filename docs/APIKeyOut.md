@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **admin** | **bool** |  | [optional] 
 **vetted** | **bool** |  | [optional] 
 **learnable** | **bool** |  | [optional] 
+**anonymized** | **bool** |  | [optional] 
 **partner** | **bool** |  | [optional] 
 **striped** | **bool** |  | [optional] 
 **corporate** | **bool** |  | [optional] 

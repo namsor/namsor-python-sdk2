@@ -5,6 +5,7 @@ All URIs are relative to *https://v2.namsor.com/NamSorAPIv2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_credits**](AdminApi.md#add_credits) | **GET** /api2/json/addCredits/{apiKey}/{usageCredits}/{userMessage} | Add usage credits to an API Key.
+[**anonymize**](AdminApi.md#anonymize) | **GET** /api2/json/anonymize/{source}/{anonymized} | Activate/deactivate anonymization for a source.
 [**api_usage**](AdminApi.md#api_usage) | **GET** /api2/json/apiUsage | Print current API usage.
 [**api_usage_history**](AdminApi.md#api_usage_history) | **GET** /api2/json/apiUsageHistory | Print historical API usage.
 [**api_usage_history_aggregate**](AdminApi.md#api_usage_history_aggregate) | **GET** /api2/json/apiUsageHistoryAggregate | Print historical API usage (in an aggregated view, by service, by day/hour/min).
@@ -23,15 +24,17 @@ Method | HTTP request | Description
 [**namsor_counter**](AdminApi.md#namsor_counter) | **GET** /api2/json/namsorCounter | Get the overall API counter
 [**payment_info**](AdminApi.md#payment_info) | **GET** /api2/json/paymentInfo/{token} | Get the Stripe payment information associated with the current google auth session token.
 [**procure_key**](AdminApi.md#procure_key) | **GET** /api2/json/procureKey/{token} | Procure an API Key (sent via Email), based on an auth token. Keep your API Key secret.
-[**redeploy_ui**](AdminApi.md#redeploy_ui) | **GET** /api2/json/redeployUI | Redeploy UI from current dev branch.
-[**redeploy_ui1**](AdminApi.md#redeploy_ui1) | **GET** /api2/json/redeployUI/{live} | Redeploy UI from current dev branch.
-[**remove_user_account**](AdminApi.md#remove_user_account) | **GET** /api2/json/removeUserAccount/{token} | Subscribe to a give API plan, using the user&#39;s preferred or default currency.
+[**redeploy_ui**](AdminApi.md#redeploy_ui) | **GET** /api2/json/redeployUI/{live} | Redeploy UI from current dev branch.
+[**redeploy_ui1**](AdminApi.md#redeploy_ui1) | **GET** /api2/json/redeployUI | Redeploy UI from current dev branch.
+[**remove_user_account**](AdminApi.md#remove_user_account) | **GET** /api2/json/removeUserAccount/{token} | Remove the user account.
+[**remove_user_account_on_behalf**](AdminApi.md#remove_user_account_on_behalf) | **GET** /api2/json/removeUserAccountOnBehalf/{apiKey} | Remove (on behalf) a user account.
 [**shutdown**](AdminApi.md#shutdown) | **GET** /api2/json/shutdown | Stop learning and shutdown system.
 [**software_version**](AdminApi.md#software_version) | **GET** /api2/json/softwareVersion | Get the current software version
 [**source_stats**](AdminApi.md#source_stats) | **GET** /api2/json/sourceStats/{source} | Print basic source statistics.
 [**stats**](AdminApi.md#stats) | **GET** /api2/json/stats | Print basic system statistics.
 [**stripe_connect**](AdminApi.md#stripe_connect) | **GET** /api2/json/stripeConnect | Connects a Stripe Account.
 [**subscribe_plan**](AdminApi.md#subscribe_plan) | **GET** /api2/json/subscribePlan/{planName}/{token} | Subscribe to a give API plan, using the user&#39;s preferred or default currency.
+[**subscribe_plan_on_behalf**](AdminApi.md#subscribe_plan_on_behalf) | **GET** /api2/json/subscribePlanOnBehalf/{planName}/{apiKey} | Subscribe to a give API plan, using the user&#39;s preferred or default currency (admin only).
 [**update_billing_info**](AdminApi.md#update_billing_info) | **POST** /api2/json/updateBillingInfo/{token} | Sets or update the billing information (company name, address, phone, vat ID)
 [**update_limit**](AdminApi.md#update_limit) | **GET** /api2/json/updateLimit/{usageLimit}/{hardOrSoft}/{token} | Modifies the hard/soft limit on the API plan&#39;s overages (default is 0$ soft limit).
 [**update_payment_default**](AdminApi.md#update_payment_default) | **GET** /api2/json/updatePaymentDefault/{defautSourceId}/{token} | Update the default Stripe card associated with the current google auth session token.
@@ -96,6 +99,61 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **anonymize**
+> anonymize(source, anonymized)
+
+Activate/deactivate anonymization for a source.
+
+### Example
+
+* Api Key Authentication (api_key): 
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = openapi_client.Configuration()
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openapi_client.AdminApi(openapi_client.ApiClient(configuration))
+source = 'source_example' # str | 
+anonymized = True # bool | 
+
+try:
+    # Activate/deactivate anonymization for a source.
+    api_instance.anonymize(source, anonymized)
+except ApiException as e:
+    print("Exception when calling AdminApi->anonymize: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **source** | **str**|  | 
+ **anonymized** | **bool**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1037,56 +1095,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **redeploy_ui**
-> redeploy_ui()
-
-Redeploy UI from current dev branch.
-
-### Example
-
-* Api Key Authentication (api_key): 
-```python
-from __future__ import print_function
-import time
-import openapi_client
-from openapi_client.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: api_key
-configuration = openapi_client.Configuration()
-configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openapi_client.AdminApi(openapi_client.ApiClient(configuration))
-
-try:
-    # Redeploy UI from current dev branch.
-    api_instance.redeploy_ui()
-except ApiException as e:
-    print("Exception when calling AdminApi->redeploy_ui: %s\n" % e)
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **redeploy_ui1**
-> redeploy_ui1(live)
+> redeploy_ui(live)
 
 Redeploy UI from current dev branch.
 
@@ -1112,9 +1121,9 @@ live = True # bool |
 
 try:
     # Redeploy UI from current dev branch.
-    api_instance.redeploy_ui1(live)
+    api_instance.redeploy_ui(live)
 except ApiException as e:
-    print("Exception when calling AdminApi->redeploy_ui1: %s\n" % e)
+    print("Exception when calling AdminApi->redeploy_ui: %s\n" % e)
 ```
 
 ### Parameters
@@ -1138,10 +1147,59 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **redeploy_ui1**
+> redeploy_ui1()
+
+Redeploy UI from current dev branch.
+
+### Example
+
+* Api Key Authentication (api_key): 
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = openapi_client.Configuration()
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openapi_client.AdminApi(openapi_client.ApiClient(configuration))
+
+try:
+    # Redeploy UI from current dev branch.
+    api_instance.redeploy_ui1()
+except ApiException as e:
+    print("Exception when calling AdminApi->redeploy_ui1: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **remove_user_account**
 > APIPlanSubscriptionOut remove_user_account(token)
 
-Subscribe to a give API plan, using the user's preferred or default currency.
+Remove the user account.
 
 ### Example
 
@@ -1164,7 +1222,7 @@ api_instance = openapi_client.AdminApi(openapi_client.ApiClient(configuration))
 token = 'token_example' # str | 
 
 try:
-    # Subscribe to a give API plan, using the user's preferred or default currency.
+    # Remove the user account.
     api_response = api_instance.remove_user_account(token)
     pprint(api_response)
 except ApiException as e:
@@ -1176,6 +1234,60 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **token** | **str**|  | 
+
+### Return type
+
+[**APIPlanSubscriptionOut**](APIPlanSubscriptionOut.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **remove_user_account_on_behalf**
+> APIPlanSubscriptionOut remove_user_account_on_behalf(api_key)
+
+Remove (on behalf) a user account.
+
+### Example
+
+* Api Key Authentication (api_key): 
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = openapi_client.Configuration()
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openapi_client.AdminApi(openapi_client.ApiClient(configuration))
+api_key = 'api_key_example' # str | 
+
+try:
+    # Remove (on behalf) a user account.
+    api_response = api_instance.remove_user_account_on_behalf(api_key)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AdminApi->remove_user_account_on_behalf: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_key** | **str**|  | 
 
 ### Return type
 
@@ -1494,6 +1606,62 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **plan_name** | **str**|  | 
  **token** | **str**|  | 
+
+### Return type
+
+[**APIPlanSubscriptionOut**](APIPlanSubscriptionOut.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **subscribe_plan_on_behalf**
+> APIPlanSubscriptionOut subscribe_plan_on_behalf(plan_name, api_key)
+
+Subscribe to a give API plan, using the user's preferred or default currency (admin only).
+
+### Example
+
+* Api Key Authentication (api_key): 
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = openapi_client.Configuration()
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openapi_client.AdminApi(openapi_client.ApiClient(configuration))
+plan_name = 'plan_name_example' # str | 
+api_key = 'api_key_example' # str | 
+
+try:
+    # Subscribe to a give API plan, using the user's preferred or default currency (admin only).
+    api_response = api_instance.subscribe_plan_on_behalf(plan_name, api_key)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AdminApi->subscribe_plan_on_behalf: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **plan_name** | **str**|  | 
+ **api_key** | **str**|  | 
 
 ### Return type
 
