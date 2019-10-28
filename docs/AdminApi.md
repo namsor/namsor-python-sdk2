@@ -9,8 +9,8 @@ Method | HTTP request | Description
 [**api_usage**](AdminApi.md#api_usage) | **GET** /api2/json/apiUsage | Print current API usage.
 [**api_usage_history**](AdminApi.md#api_usage_history) | **GET** /api2/json/apiUsageHistory | Print historical API usage.
 [**api_usage_history_aggregate**](AdminApi.md#api_usage_history_aggregate) | **GET** /api2/json/apiUsageHistoryAggregate | Print historical API usage (in an aggregated view, by service, by day/hour/min).
-[**available_plans**](AdminApi.md#available_plans) | **GET** /api2/json/availablePlans/{token} | List all available plans in the user&#39;s preferred currency.
-[**available_plans1**](AdminApi.md#available_plans1) | **GET** /api2/json/availablePlans | List all available plans in the default currency (usd).
+[**available_plans**](AdminApi.md#available_plans) | **GET** /api2/json/availablePlans | List all available plans in the default currency (usd).
+[**available_plans1**](AdminApi.md#available_plans1) | **GET** /api2/json/availablePlans/{token} | List all available plans in the user&#39;s preferred currency.
 [**available_services**](AdminApi.md#available_services) | **GET** /api2/json/apiServices | List of API services and usage cost in Units (default is 1&#x3D;ONE Unit).
 [**billing_currencies**](AdminApi.md#billing_currencies) | **GET** /api2/json/billingCurrencies | List possible currency options for billing (USD, EUR, GBP, ...)
 [**billing_history**](AdminApi.md#billing_history) | **GET** /api2/json/billingHistory/{token} | Read the history billing information (invoices paid via Stripe or manually).
@@ -308,7 +308,57 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **available_plans**
-> APIPlansOut available_plans(token)
+> APIPlansOut available_plans()
+
+List all available plans in the default currency (usd).
+
+### Example
+
+* Api Key Authentication (api_key): 
+```python
+from __future__ import print_function
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key
+configuration = openapi_client.Configuration()
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openapi_client.AdminApi(openapi_client.ApiClient(configuration))
+
+try:
+    # List all available plans in the default currency (usd).
+    api_response = api_instance.available_plans()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AdminApi->available_plans: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**APIPlansOut**](APIPlansOut.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **available_plans1**
+> APIPlansOut available_plans1(token)
 
 List all available plans in the user's preferred currency.
 
@@ -334,10 +384,10 @@ token = 'token_example' # str |
 
 try:
     # List all available plans in the user's preferred currency.
-    api_response = api_instance.available_plans(token)
+    api_response = api_instance.available_plans1(token)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AdminApi->available_plans: %s\n" % e)
+    print("Exception when calling AdminApi->available_plans1: %s\n" % e)
 ```
 
 ### Parameters
@@ -345,56 +395,6 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **token** | **str**|  | 
-
-### Return type
-
-[**APIPlansOut**](APIPlansOut.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **available_plans1**
-> APIPlansOut available_plans1()
-
-List all available plans in the default currency (usd).
-
-### Example
-
-* Api Key Authentication (api_key): 
-```python
-from __future__ import print_function
-import time
-import openapi_client
-from openapi_client.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: api_key
-configuration = openapi_client.Configuration()
-configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openapi_client.AdminApi(openapi_client.ApiClient(configuration))
-
-try:
-    # List all available plans in the default currency (usd).
-    api_response = api_instance.available_plans1()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AdminApi->available_plans1: %s\n" % e)
-```
-
-### Parameters
-This endpoint does not need any parameter.
 
 ### Return type
 

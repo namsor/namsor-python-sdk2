@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **last_name** | **str** |  | [optional] 
 **country_origin** | **str** | Most likely country of Origin | [optional] 
 **country_origin_alt** | **str** | Second best alternative : country of Origin | [optional] 
+**countries_origin_top** | **list[str]** | List countries of Origin (top 10) | [optional] 
 **score** | **float** | Compatibility to NamSor_v1 Origin score value | [optional] 
 **region_origin** | **str** | Most likely region of Origin (based on countryOrigin ISO2 code) | [optional] 
 **top_region_origin** | **str** | Most likely region of Origin (based on countryOrigin ISO2 code) | [optional] 
