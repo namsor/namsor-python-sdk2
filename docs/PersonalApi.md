@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **gender_full**
-> FirstLastNameGenderedOut gender_full(full_name)
+> PersonalNameGenderedOut gender_full(full_name)
 
 Infer the likely gender of a full name, ex. John H. Smith
 
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FirstLastNameGenderedOut**](FirstLastNameGenderedOut.md)
+[**PersonalNameGenderedOut**](PersonalNameGenderedOut.md)
 
 ### Authorization
 
@@ -469,7 +469,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **gender_full_geo**
-> FirstLastNameGenderedOut gender_full_geo(full_name, country_iso2)
+> PersonalNameGenderedOut gender_full_geo(full_name, country_iso2)
 
 Infer the likely gender of a full name, given a local context (ISO2 country code).
 
@@ -511,7 +511,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FirstLastNameGenderedOut**](FirstLastNameGenderedOut.md)
+[**PersonalNameGenderedOut**](PersonalNameGenderedOut.md)
 
 ### Authorization
 
