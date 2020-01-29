@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import openapi_client
-from openapi_client.models.batch_match_personal_first_last_name_in import BatchMatchPersonalFirstLastNameIn  # noqa: E501
+from openapi_client.models.cache_metrics_out import CacheMetricsOut  # noqa: E501
 from openapi_client.rest import ApiException
 
 
-class TestBatchMatchPersonalFirstLastNameIn(unittest.TestCase):
-    """BatchMatchPersonalFirstLastNameIn unit test stubs"""
+class TestCacheMetricsOut(unittest.TestCase):
+    """CacheMetricsOut unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestBatchMatchPersonalFirstLastNameIn(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testBatchMatchPersonalFirstLastNameIn(self):
-        """Test BatchMatchPersonalFirstLastNameIn"""
+    def testCacheMetricsOut(self):
+        """Test CacheMetricsOut"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.batch_match_personal_first_last_name_in.BatchMatchPersonalFirstLastNameIn()  # noqa: E501
+        # model = openapi_client.models.cache_metrics_out.CacheMetricsOut()  # noqa: E501
         pass
 
 

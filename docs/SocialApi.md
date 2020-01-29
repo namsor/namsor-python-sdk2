@@ -4,17 +4,17 @@ All URIs are relative to *https://v2.namsor.com/NamSorAPIv2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**phone_code**](SocialApi.md#phone_code) | **GET** /api2/json/phoneCode/{firstName}/{lastName}/{phoneNumber} | [USES 11 UNITS] Infer the likely country and phone prefix, given a personal name and formatted / unformatted phone number.
-[**phone_code_batch**](SocialApi.md#phone_code_batch) | **POST** /api2/json/phoneCodeBatch | [USES 11 UNITS] Infer the likely country and phone prefix, of up to 100 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.
-[**phone_code_geo**](SocialApi.md#phone_code_geo) | **GET** /api2/json/phoneCodeGeo/{firstName}/{lastName}/{phoneNumber}/{countryIso2} | [USES 11 UNITS] Infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
-[**phone_code_geo_batch**](SocialApi.md#phone_code_geo_batch) | **POST** /api2/json/phoneCodeGeoBatch | [USES 11 UNITS] Infer the likely country and phone prefix, of up to 100 personal names, with a local context (ISO2 country of residence).
+[**phone_code**](SocialApi.md#phone_code) | **GET** /api2/json/phoneCode/{firstName}/{lastName}/{phoneNumber} | [USES 11 UNITS PER NAME] Infer the likely country and phone prefix, given a personal name and formatted / unformatted phone number.
+[**phone_code_batch**](SocialApi.md#phone_code_batch) | **POST** /api2/json/phoneCodeBatch | [USES 11 UNITS PER NAME] Infer the likely country and phone prefix, of up to 100 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.
+[**phone_code_geo**](SocialApi.md#phone_code_geo) | **GET** /api2/json/phoneCodeGeo/{firstName}/{lastName}/{phoneNumber}/{countryIso2} | [USES 11 UNITS PER NAME] Infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
+[**phone_code_geo_batch**](SocialApi.md#phone_code_geo_batch) | **POST** /api2/json/phoneCodeGeoBatch | [USES 11 UNITS PER NAME] Infer the likely country and phone prefix, of up to 100 personal names, with a local context (ISO2 country of residence).
 [**phone_code_geo_feedback_loop**](SocialApi.md#phone_code_geo_feedback_loop) | **GET** /api2/json/phoneCodeGeoFeedbackLoop/{firstName}/{lastName}/{phoneNumber}/{phoneNumberE164}/{countryIso2} | [CREDITS 1 UNIT] Feedback loop to better infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
 
 
 # **phone_code**
 > FirstLastNamePhoneCodedOut phone_code(first_name, last_name, phone_number)
 
-[USES 11 UNITS] Infer the likely country and phone prefix, given a personal name and formatted / unformatted phone number.
+[USES 11 UNITS PER NAME] Infer the likely country and phone prefix, given a personal name and formatted / unformatted phone number.
 
 ### Example
 
@@ -39,7 +39,7 @@ last_name = 'last_name_example' # str |
 phone_number = 'phone_number_example' # str | 
 
 try:
-    # [USES 11 UNITS] Infer the likely country and phone prefix, given a personal name and formatted / unformatted phone number.
+    # [USES 11 UNITS PER NAME] Infer the likely country and phone prefix, given a personal name and formatted / unformatted phone number.
     api_response = api_instance.phone_code(first_name, last_name, phone_number)
     pprint(api_response)
 except ApiException as e:
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 # **phone_code_batch**
 > BatchFirstLastNamePhoneCodedOut phone_code_batch(batch_first_last_name_phone_number_in=batch_first_last_name_phone_number_in)
 
-[USES 11 UNITS] Infer the likely country and phone prefix, of up to 100 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.
+[USES 11 UNITS PER NAME] Infer the likely country and phone prefix, of up to 100 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.
 
 ### Example
 
@@ -95,7 +95,7 @@ api_instance = openapi_client.SocialApi(openapi_client.ApiClient(configuration))
 batch_first_last_name_phone_number_in = openapi_client.BatchFirstLastNamePhoneNumberIn() # BatchFirstLastNamePhoneNumberIn | A list of personal names (optional)
 
 try:
-    # [USES 11 UNITS] Infer the likely country and phone prefix, of up to 100 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.
+    # [USES 11 UNITS PER NAME] Infer the likely country and phone prefix, of up to 100 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.
     api_response = api_instance.phone_code_batch(batch_first_last_name_phone_number_in=batch_first_last_name_phone_number_in)
     pprint(api_response)
 except ApiException as e:
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 # **phone_code_geo**
 > FirstLastNamePhoneCodedOut phone_code_geo(first_name, last_name, phone_number, country_iso2)
 
-[USES 11 UNITS] Infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
+[USES 11 UNITS PER NAME] Infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
 
 ### Example
 
@@ -152,7 +152,7 @@ phone_number = 'phone_number_example' # str |
 country_iso2 = 'country_iso2_example' # str | 
 
 try:
-    # [USES 11 UNITS] Infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
+    # [USES 11 UNITS PER NAME] Infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).
     api_response = api_instance.phone_code_geo(first_name, last_name, phone_number, country_iso2)
     pprint(api_response)
 except ApiException as e:
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 # **phone_code_geo_batch**
 > BatchFirstLastNamePhoneCodedOut phone_code_geo_batch(batch_first_last_name_phone_number_geo_in=batch_first_last_name_phone_number_geo_in)
 
-[USES 11 UNITS] Infer the likely country and phone prefix, of up to 100 personal names, with a local context (ISO2 country of residence).
+[USES 11 UNITS PER NAME] Infer the likely country and phone prefix, of up to 100 personal names, with a local context (ISO2 country of residence).
 
 ### Example
 
@@ -209,7 +209,7 @@ api_instance = openapi_client.SocialApi(openapi_client.ApiClient(configuration))
 batch_first_last_name_phone_number_geo_in = openapi_client.BatchFirstLastNamePhoneNumberGeoIn() # BatchFirstLastNamePhoneNumberGeoIn | A list of personal names (optional)
 
 try:
-    # [USES 11 UNITS] Infer the likely country and phone prefix, of up to 100 personal names, with a local context (ISO2 country of residence).
+    # [USES 11 UNITS PER NAME] Infer the likely country and phone prefix, of up to 100 personal names, with a local context (ISO2 country of residence).
     api_response = api_instance.phone_code_geo_batch(batch_first_last_name_phone_number_geo_in=batch_first_last_name_phone_number_geo_in)
     pprint(api_response)
 except ApiException as e:
