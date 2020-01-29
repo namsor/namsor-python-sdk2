@@ -15,7 +15,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "1.0.0"
+__version__ = "2.0.8"
 
 # import apis into sdk package
 from openapi_client.api.admin_api import AdminApi
