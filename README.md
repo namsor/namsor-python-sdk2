@@ -54,22 +54,28 @@ from pprint import pprint
 
 # Configure API key authorization: api_key
 configuration = openapi_client.Configuration()
-configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+configuration.api_key['X-API-KEY'] = '<your API key>'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openapi_client.AdminApi(openapi_client.ApiClient(configuration))
-api_key = 'api_key_example' # str | 
-usage_credits = 56 # int | 
-user_message = 'user_message_example' # str | 
-
+api_instance = openapi_client.PersonalApi(openapi_client.ApiClient(configuration))
+batch_first_last_name_in = openapi_client.BatchFirstLastNameIn() # BatchFirstLastNameIn | A list of personal names (optional)
+name1 = openapi_client.FirstLastNameIn();
+name1.id='1'
+name1.first_name='John'
+name1.last_name='Smith'
+name2 = openapi_client.FirstLastNameIn();
+name2.id='2'
+name2.first_name='Mary'
+name2.last_name='Smith'
+batch_first_last_name_in.personal_names = [name1, name2]
 try:
-    # Add usage credits to an API Key.
-    api_response = api_instance.add_credits(api_key, usage_credits, user_message)
+    # Infer the likely origin of up to 1000 names, detecting automatically the cultural context.
+    api_response = api_instance.origin_batch(batch_first_last_name_in=batch_first_last_name_in)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AdminApi->add_credits: %s\n" % e)
+    print("Exception when calling PersonalApi->gender_batch: %s\n" % e)
 
 ```
 
