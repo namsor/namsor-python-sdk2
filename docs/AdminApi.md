@@ -25,8 +25,6 @@ Method | HTTP request | Description
 [**namsor_counter**](AdminApi.md#namsor_counter) | **GET** /api2/json/namsorCounter | Get the overall API counter
 [**payment_info**](AdminApi.md#payment_info) | **GET** /api2/json/paymentInfo/{token} | Get the Stripe payment information associated with the current google auth session token.
 [**procure_key**](AdminApi.md#procure_key) | **GET** /api2/json/procureKey/{token} | Procure an API Key (sent via Email), based on an auth token. Keep your API Key secret.
-[**redeploy_ui**](AdminApi.md#redeploy_ui) | **GET** /api2/json/redeployUI/{live} | Redeploy UI from current dev branch.
-[**redeploy_ui1**](AdminApi.md#redeploy_ui1) | **GET** /api2/json/redeployUI | Redeploy UI from current dev branch.
 [**remove_user_account**](AdminApi.md#remove_user_account) | **GET** /api2/json/removeUserAccount/{token} | Remove the user account.
 [**remove_user_account_on_behalf**](AdminApi.md#remove_user_account_on_behalf) | **GET** /api2/json/removeUserAccountOnBehalf/{apiKey} | Remove (on behalf) a user account.
 [**shutdown**](AdminApi.md#shutdown) | **GET** /api2/json/shutdown | Stop learning and shutdown system.
@@ -1143,108 +1141,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **redeploy_ui**
-> redeploy_ui(live)
-
-Redeploy UI from current dev branch.
-
-### Example
-
-* Api Key Authentication (api_key): 
-```python
-from __future__ import print_function
-import time
-import openapi_client
-from openapi_client.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: api_key
-configuration = openapi_client.Configuration()
-configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openapi_client.AdminApi(openapi_client.ApiClient(configuration))
-live = True # bool | 
-
-try:
-    # Redeploy UI from current dev branch.
-    api_instance.redeploy_ui(live)
-except ApiException as e:
-    print("Exception when calling AdminApi->redeploy_ui: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **live** | **bool**|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **redeploy_ui1**
-> redeploy_ui1()
-
-Redeploy UI from current dev branch.
-
-### Example
-
-* Api Key Authentication (api_key): 
-```python
-from __future__ import print_function
-import time
-import openapi_client
-from openapi_client.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: api_key
-configuration = openapi_client.Configuration()
-configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openapi_client.AdminApi(openapi_client.ApiClient(configuration))
-
-try:
-    # Redeploy UI from current dev branch.
-    api_instance.redeploy_ui1()
-except ApiException as e:
-    print("Exception when calling AdminApi->redeploy_ui1: %s\n" % e)
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
