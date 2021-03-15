@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | [optional] 
 **first_name** | **str** |  | [optional] 
 **last_name** | **str** |  | [optional] 
+**order_option** | **str** |  | [optional] 
 **match_candidates** | [**list[NameMatchCandidateOut]**](NameMatchCandidateOut.md) |  | [optional] 
 **category** | **str** |  | [optional] 
 
