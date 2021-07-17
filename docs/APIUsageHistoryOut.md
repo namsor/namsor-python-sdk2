@@ -1,9 +1,9 @@
-# BatchFirstLastNameUSRaceEthnicityOut
+# APIUsageHistoryOut
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**personal_names** | [**list[FirstLastNameUSRaceEthnicityOut]**](FirstLastNameUSRaceEthnicityOut.md) | Classified US &#39;race&#39;/ethnicized names | [optional] 
+**detailed_usage** | [**list[APICounterV2Out]**](APICounterV2Out.md) | Detailed usage as reported by the deduplicating API counter. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

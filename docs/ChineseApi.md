@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 
 # **chinese_name_candidates**
-> RomanizedNameOut chinese_name_candidates(chinese_surname_latin, chinese_given_name_latin)
+> NameMatchCandidatesOut chinese_name_candidates(chinese_surname_latin, chinese_given_name_latin)
 
 Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RomanizedNameOut**](RomanizedNameOut.md)
+[**NameMatchCandidatesOut**](NameMatchCandidatesOut.md)
 
 ### Authorization
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **chinese_name_candidates_gender_batch**
-> BatchNameMatchCandidatesOut chinese_name_candidates_gender_batch(batch_first_last_name_in=batch_first_last_name_in)
+> BatchNameMatchCandidatesOut chinese_name_candidates_gender_batch(batch_first_last_name_gender_in=batch_first_last_name_gender_in)
 
 Identify Chinese name candidates, based on the romanized name (firstName = chineseGivenName; lastName=chineseSurname) ex. Wang Xiaoming.
 
@@ -153,11 +153,11 @@ configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = openapi_client.ChineseApi(openapi_client.ApiClient(configuration))
-batch_first_last_name_in = openapi_client.BatchFirstLastNameIn() # BatchFirstLastNameIn | A list of personal Chinese names in LATIN, firstName = chineseGivenName; lastName=chineseSurname (optional)
+batch_first_last_name_gender_in = openapi_client.BatchFirstLastNameGenderIn() # BatchFirstLastNameGenderIn | A list of personal Chinese names in LATIN, firstName = chineseGivenName; lastName=chineseSurname (optional)
 
 try:
     # Identify Chinese name candidates, based on the romanized name (firstName = chineseGivenName; lastName=chineseSurname) ex. Wang Xiaoming.
-    api_response = api_instance.chinese_name_candidates_gender_batch(batch_first_last_name_in=batch_first_last_name_in)
+    api_response = api_instance.chinese_name_candidates_gender_batch(batch_first_last_name_gender_in=batch_first_last_name_gender_in)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ChineseApi->chinese_name_candidates_gender_batch: %s\n" % e)
@@ -167,7 +167,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **batch_first_last_name_in** | [**BatchFirstLastNameIn**](BatchFirstLastNameIn.md)| A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname | [optional] 
+ **batch_first_last_name_gender_in** | [**BatchFirstLastNameGenderIn**](BatchFirstLastNameGenderIn.md)| A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname | [optional] 
 
 ### Return type
 
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **chinese_name_gender_candidates**
-> RomanizedNameOut chinese_name_gender_candidates(chinese_surname_latin, chinese_given_name_latin, known_gender)
+> NameMatchCandidatesOut chinese_name_gender_candidates(chinese_surname_latin, chinese_given_name_latin, known_gender)
 
 Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming - having a known gender ('male' or 'female')
 
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RomanizedNameOut**](RomanizedNameOut.md)
+[**NameMatchCandidatesOut**](NameMatchCandidatesOut.md)
 
 ### Authorization
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **chinese_name_match**
-> RomanizedNameOut chinese_name_match(chinese_surname_latin, chinese_given_name_latin, chinese_name)
+> NameMatchedOut chinese_name_match(chinese_surname_latin, chinese_given_name_latin, chinese_name)
 
 Return a score for matching Chinese name ex. 王晓明 with a romanized name ex. Wang Xiaoming
 
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RomanizedNameOut**](RomanizedNameOut.md)
+[**NameMatchedOut**](NameMatchedOut.md)
 
 ### Authorization
 
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **chinese_name_match_batch**
-> BatchNameMatchCandidatesOut chinese_name_match_batch(batch_first_last_name_in=batch_first_last_name_in)
+> BatchNameMatchedOut chinese_name_match_batch(batch_match_personal_first_last_name_in=batch_match_personal_first_last_name_in)
 
 Identify Chinese name candidates, based on the romanized name (firstName = chineseGivenName; lastName=chineseSurname), ex. Wang Xiaoming
 
@@ -323,11 +323,11 @@ configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = openapi_client.ChineseApi(openapi_client.ApiClient(configuration))
-batch_first_last_name_in = openapi_client.BatchFirstLastNameIn() # BatchFirstLastNameIn | A list of personal Chinese names in LATIN, firstName = chineseGivenName; lastName=chineseSurname (optional)
+batch_match_personal_first_last_name_in = openapi_client.BatchMatchPersonalFirstLastNameIn() # BatchMatchPersonalFirstLastNameIn | A list of personal Chinese names in LATIN, firstName = chineseGivenName; lastName=chineseSurname (optional)
 
 try:
     # Identify Chinese name candidates, based on the romanized name (firstName = chineseGivenName; lastName=chineseSurname), ex. Wang Xiaoming
-    api_response = api_instance.chinese_name_match_batch(batch_first_last_name_in=batch_first_last_name_in)
+    api_response = api_instance.chinese_name_match_batch(batch_match_personal_first_last_name_in=batch_match_personal_first_last_name_in)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ChineseApi->chinese_name_match_batch: %s\n" % e)
@@ -337,11 +337,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **batch_first_last_name_in** | [**BatchFirstLastNameIn**](BatchFirstLastNameIn.md)| A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname | [optional] 
+ **batch_match_personal_first_last_name_in** | [**BatchMatchPersonalFirstLastNameIn**](BatchMatchPersonalFirstLastNameIn.md)| A list of personal Chinese names in LATIN, firstName &#x3D; chineseGivenName; lastName&#x3D;chineseSurname | [optional] 
 
 ### Return type
 
-[**BatchNameMatchCandidatesOut**](BatchNameMatchCandidatesOut.md)
+[**BatchNameMatchedOut**](BatchNameMatchedOut.md)
 
 ### Authorization
 
