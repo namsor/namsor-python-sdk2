@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import openapi_client
-from openapi_client.models.batch_first_last_name_geo_in import BatchFirstLastNameGeoIn  # noqa: E501
+from openapi_client.models.batch_first_last_name_geo_subclassification_out import BatchFirstLastNameGeoSubclassificationOut  # noqa: E501
 from openapi_client.rest import ApiException
 
 
-class TestBatchFirstLastNameGeoIn(unittest.TestCase):
-    """BatchFirstLastNameGeoIn unit test stubs"""
+class TestBatchFirstLastNameGeoSubclassificationOut(unittest.TestCase):
+    """BatchFirstLastNameGeoSubclassificationOut unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestBatchFirstLastNameGeoIn(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testBatchFirstLastNameGeoIn(self):
-        """Test BatchFirstLastNameGeoIn"""
+    def testBatchFirstLastNameGeoSubclassificationOut(self):
+        """Test BatchFirstLastNameGeoSubclassificationOut"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.batch_first_last_name_geo_in.BatchFirstLastNameGeoIn()  # noqa: E501
+        # model = openapi_client.models.batch_first_last_name_geo_subclassification_out.BatchFirstLastNameGeoSubclassificationOut()  # noqa: E501
         pass
 
 

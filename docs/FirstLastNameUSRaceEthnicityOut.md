@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **race_ethnicity** | **str** | Most likely US &#39;race&#39;/ethnicity | [optional] 
 **score** | **float** | Higher score is better, but score is not normalized. Use calibratedProbability if available.  | [optional] 
 **race_ethnicities_top** | **list[str]** | List &#39;race&#39;/ethnicities | [optional] 
-**probability_calibrated** | **float** | The calibrated probability for raceEthnicity to have been guessed correctly. | [optional] 
-**probability_alt_calibrated** | **float** | The calibrated probability for raceEthnicity OR raceEthnicityAlt to have been guessed correctly. | [optional] 
+**probability_calibrated** | **float** | The calibrated probability for raceEthnicity to have been guessed correctly. -1 &#x3D; still calibrating.  | [optional] 
+**probability_alt_calibrated** | **float** | The calibrated probability for raceEthnicity OR raceEthnicityAlt to have been guessed correctly. -1 &#x3D; still calibrating.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

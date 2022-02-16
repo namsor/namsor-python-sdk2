@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **region_origin** | **str** | Most likely region of Origin (based on countryOrigin ISO2 code) | [optional] 
 **top_region_origin** | **str** | Most likely top region of Origin (based on countryOrigin ISO2 code) | [optional] 
 **sub_region_origin** | **str** | Most likely sub region of Origin (based on countryOrigin ISO2 code) | [optional] 
-**probability_calibrated** | **float** | The calibrated probability for countryOrigin to have been guessed correctly. | [optional] 
-**probability_alt_calibrated** | **float** | The calibrated probability for countryOrigin OR countryOriginAlt to have been guessed correctly. | [optional] 
+**probability_calibrated** | **float** | The calibrated probability for countryOrigin to have been guessed correctly. -1 &#x3D; still calibrating.  | [optional] 
+**probability_alt_calibrated** | **float** | The calibrated probability for countryOrigin OR countryOriginAlt to have been guessed correctly. -1 &#x3D; still calibrating.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
