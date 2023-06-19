@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **striped** | **bool** | The API Key is associated to a valid Stripe account. | [optional] 
 **corporate** | **bool** | The API Key has role corporate (ex SWIFT payments instead of Stripe payments). | [optional] 
 **disabled** | **bool** | The API Key is temporarily or permanently disabled. | [optional] 
+**explainable** | **bool** | The API Key supports the AI explainability option (may require a specific license). | [optional] 
+**ip_address** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

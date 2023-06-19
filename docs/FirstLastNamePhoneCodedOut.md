@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **script** | **str** |  | [optional] 
 **id** | **str** |  | [optional] 
+**explanation** | **str** |  | [optional] 
 **first_name** | **str** | The first name (also known as given name) | [optional] 
 **last_name** | **str** | The last name (also known as family name, or surname) | [optional] 
 **international_phone_number_verified** | **str** | The normalized phone number, verified using libphonenumber. | [optional] 

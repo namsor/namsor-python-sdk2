@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **script** | **str** |  | [optional] 
 **id** | **str** |  | [optional] 
+**explanation** | **str** |  | [optional] 
 **match_status** | **str** | The name matching status. | [optional] 
 **score** | **float** |  | [optional] 
 

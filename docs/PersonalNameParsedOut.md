@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **script** | **str** |  | [optional] 
 **id** | **str** |  | [optional] 
+**explanation** | **str** |  | [optional] 
 **name** | **str** | The input name | [optional] 
 **name_parser_type** | **str** | Name parsing is addressed as a classification problem, for example FN1LN1 means a first then last name order. | [optional] 
 **name_parser_type_alt** | **str** | Second best alternative parsing. Name parsing is addressed as a classification problem, for example FN1LN1 means a first then last name order. | [optional] 
