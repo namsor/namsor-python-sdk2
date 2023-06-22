@@ -60,9 +60,9 @@ configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = openapi_client.PersonalApi(openapi_client.ApiClient(configuration))
-first_name = 'first_name_example' # str | 
-last_name = 'last_name_example' # str | 
-country_iso2 = 'country_iso2_example' # str | 
+first_name = 'John' # str | 
+last_name = 'Smith' # str | 
+country_iso2 = 'US' # str | 
 
 try:
     # Infer the likely gender of a name, given a local context (ISO2 country code).
