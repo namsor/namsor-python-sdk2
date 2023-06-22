@@ -59,18 +59,17 @@ configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openapi_client.AdminApi(openapi_client.ApiClient(configuration))
-source = 'source_example' # str | 
-anonymized = True # bool | 
-token = 'token_example' # str | 
+api_instance = openapi_client.PersonalApi(openapi_client.ApiClient(configuration))
+first_name = 'first_name_example' # str | 
+last_name = 'last_name_example' # str | 
+country_iso2 = 'country_iso2_example' # str | 
 
 try:
-    # Activate/deactivate anonymization for a source.
-    api_response = api_instance.anonymize(source, anonymized, token)
+    # Infer the likely gender of a name, given a local context (ISO2 country code).
+    api_response = api_instance.gender_geo(first_name, last_name, country_iso2)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AdminApi->anonymize: %s\n" % e)
-
+    print("Exception when calling PersonalApi->gender_geo: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
