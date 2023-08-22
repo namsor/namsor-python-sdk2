@@ -1,0 +1,7 @@
+from openapi_client.paths.api2_json_phone_code_geo_feedback_loop_first_name_last_name_phone_number_phone_number_e164_country_iso2.get import ApiForget
+
+
+class Api2JsonPhoneCodeGeoFeedbackLoopFirstNameLastNamePhoneNumberPhoneNumberE164CountryIso2(
+    ApiForget,
+):
+    pass

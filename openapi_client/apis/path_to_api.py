@@ -1,0 +1,311 @@
+import typing_extensions
+
+from openapi_client.paths import PathValues
+from openapi_client.apis.paths.api2_json_name_type_proper_noun import Api2JsonNameTypeProperNoun
+from openapi_client.apis.paths.api2_json_origin_first_name_last_name import Api2JsonOriginFirstNameLastName
+from openapi_client.apis.paths.api2_json_regions import Api2JsonRegions
+from openapi_client.apis.paths.api2_json_country_personal_name_full import Api2JsonCountryPersonalNameFull
+from openapi_client.apis.paths.api2_json_disable_source_disabled import Api2JsonDisableSourceDisabled
+from openapi_client.apis.paths.api2_json_software_version import Api2JsonSoftwareVersion
+from openapi_client.apis.paths.api2_json_api_status import Api2JsonApiStatus
+from openapi_client.apis.paths.api2_json_api_services import Api2JsonApiServices
+from openapi_client.apis.paths.api2_json_taxonomy_classes_classifier_name import Api2JsonTaxonomyClassesClassifierName
+from openapi_client.apis.paths.api2_json_api_usage import Api2JsonApiUsage
+from openapi_client.apis.paths.api2_json_api_usage_history import Api2JsonApiUsageHistory
+from openapi_client.apis.paths.api2_json_api_usage_history_aggregate import Api2JsonApiUsageHistoryAggregate
+from openapi_client.apis.paths.api2_json_learnable_source_learnable_token import Api2JsonLearnableSourceLearnableToken
+from openapi_client.apis.paths.api2_json_learnable_source_learnable import Api2JsonLearnableSourceLearnable
+from openapi_client.apis.paths.api2_json_api_key_info import Api2JsonApiKeyInfo
+from openapi_client.apis.paths.api2_json_anonymize_source_anonymized_token import Api2JsonAnonymizeSourceAnonymizedToken
+from openapi_client.apis.paths.api2_json_anonymize_source_anonymized import Api2JsonAnonymizeSourceAnonymized
+from openapi_client.apis.paths.api2_json_name_type_geo_proper_noun_country_iso2 import Api2JsonNameTypeGeoProperNounCountryIso2
+from openapi_client.apis.paths.api2_json_name_type_batch import Api2JsonNameTypeBatch
+from openapi_client.apis.paths.api2_json_name_type_geo_batch import Api2JsonNameTypeGeoBatch
+from openapi_client.apis.paths.api2_json_corridor_country_iso2_from_first_name_from_last_name_from_country_iso2_to_first_name_to_last_name_to import Api2JsonCorridorCountryIso2FromFirstNameFromLastNameFromCountryIso2ToFirstNameToLastNameTo
+from openapi_client.apis.paths.api2_json_corridor_batch import Api2JsonCorridorBatch
+from openapi_client.apis.paths.api2_json_gender_first_name import Api2JsonGenderFirstName
+from openapi_client.apis.paths.api2_json_gender_first_name_last_name import Api2JsonGenderFirstNameLastName
+from openapi_client.apis.paths.api2_json_gender_geo_first_name_last_name_country_iso2 import Api2JsonGenderGeoFirstNameLastNameCountryIso2
+from openapi_client.apis.paths.api2_json_gender_geo_batch import Api2JsonGenderGeoBatch
+from openapi_client.apis.paths.api2_json_gender_batch import Api2JsonGenderBatch
+from openapi_client.apis.paths.api2_json_gender_full_geo_full_name_country_iso2 import Api2JsonGenderFullGeoFullNameCountryIso2
+from openapi_client.apis.paths.api2_json_gender_full_full_name import Api2JsonGenderFullFullName
+from openapi_client.apis.paths.api2_json_gender_full_batch import Api2JsonGenderFullBatch
+from openapi_client.apis.paths.api2_json_gender_full_geo_batch import Api2JsonGenderFullGeoBatch
+from openapi_client.apis.paths.api2_json_origin_batch import Api2JsonOriginBatch
+from openapi_client.apis.paths.api2_json_subclassification_indian_first_name_last_name import Api2JsonSubclassificationIndianFirstNameLastName
+from openapi_client.apis.paths.api2_json_subclassification_indian_full_full_name import Api2JsonSubclassificationIndianFullFullName
+from openapi_client.apis.paths.api2_json_subclassification_country_iso2_first_name_last_name import Api2JsonSubclassificationCountryIso2FirstNameLastName
+from openapi_client.apis.paths.api2_json_subclassification_full_country_iso2_full_name import Api2JsonSubclassificationFullCountryIso2FullName
+from openapi_client.apis.paths.api2_json_subclassification_batch import Api2JsonSubclassificationBatch
+from openapi_client.apis.paths.api2_json_subclassification_full_batch import Api2JsonSubclassificationFullBatch
+from openapi_client.apis.paths.api2_json_subclassification_indian_batch import Api2JsonSubclassificationIndianBatch
+from openapi_client.apis.paths.api2_json_subclassification_indian_full_batch import Api2JsonSubclassificationIndianFullBatch
+from openapi_client.apis.paths.api2_json_religion_indian_full_sub_division_iso31662_personal_name_full import Api2JsonReligionIndianFullSubDivisionIso31662PersonalNameFull
+from openapi_client.apis.paths.api2_json_religion_indian_sub_division_iso31662_first_name_last_name import Api2JsonReligionIndianSubDivisionIso31662FirstNameLastName
+from openapi_client.apis.paths.api2_json_religion_country_iso2_sub_division_iso31662_first_name_last_name import Api2JsonReligionCountryIso2SubDivisionIso31662FirstNameLastName
+from openapi_client.apis.paths.api2_json_religion_full_country_iso2_sub_division_iso31662_personal_name_full import Api2JsonReligionFullCountryIso2SubDivisionIso31662PersonalNameFull
+from openapi_client.apis.paths.api2_json_religion_full_batch import Api2JsonReligionFullBatch
+from openapi_client.apis.paths.api2_json_religion_indian_full_batch import Api2JsonReligionIndianFullBatch
+from openapi_client.apis.paths.api2_json_religion_batch import Api2JsonReligionBatch
+from openapi_client.apis.paths.api2_json_religion_indian_batch import Api2JsonReligionIndianBatch
+from openapi_client.apis.paths.api2_json_castegroup_indian_full_sub_division_iso31662_personal_name_full import Api2JsonCastegroupIndianFullSubDivisionIso31662PersonalNameFull
+from openapi_client.apis.paths.api2_json_castegroup_indian_full_batch import Api2JsonCastegroupIndianFullBatch
+from openapi_client.apis.paths.api2_json_castegroup_indian_sub_division_iso31662_first_name_last_name import Api2JsonCastegroupIndianSubDivisionIso31662FirstNameLastName
+from openapi_client.apis.paths.api2_json_castegroup_indian_batch import Api2JsonCastegroupIndianBatch
+from openapi_client.apis.paths.api2_json_caste_indian_sub_division_iso31662_first_name_last_name import Api2JsonCasteIndianSubDivisionIso31662FirstNameLastName
+from openapi_client.apis.paths.api2_json_caste_indian_batch import Api2JsonCasteIndianBatch
+from openapi_client.apis.paths.api2_json_country_batch import Api2JsonCountryBatch
+from openapi_client.apis.paths.api2_json_us_race_ethnicity_first_name_last_name import Api2JsonUsRaceEthnicityFirstNameLastName
+from openapi_client.apis.paths.api2_json_us_race_ethnicity_zip5_first_name_last_name_zip5_code import Api2JsonUsRaceEthnicityZIP5FirstNameLastNameZip5Code
+from openapi_client.apis.paths.api2_json_us_race_ethnicity_batch import Api2JsonUsRaceEthnicityBatch
+from openapi_client.apis.paths.api2_json_us_zip_race_ethnicity_batch import Api2JsonUsZipRaceEthnicityBatch
+from openapi_client.apis.paths.api2_json_diaspora_country_iso2_first_name_last_name import Api2JsonDiasporaCountryIso2FirstNameLastName
+from openapi_client.apis.paths.api2_json_diaspora_batch import Api2JsonDiasporaBatch
+from openapi_client.apis.paths.api2_json_parse_name_name_full_country_iso2 import Api2JsonParseNameNameFullCountryIso2
+from openapi_client.apis.paths.api2_json_parse_name_batch import Api2JsonParseNameBatch
+from openapi_client.apis.paths.api2_json_parse_name_geo_batch import Api2JsonParseNameGeoBatch
+from openapi_client.apis.paths.api2_json_parse_chinese_name_chinese_name import Api2JsonParseChineseNameChineseName
+from openapi_client.apis.paths.api2_json_parse_chinese_name_batch import Api2JsonParseChineseNameBatch
+from openapi_client.apis.paths.api2_json_pinyin_chinese_name_chinese_name import Api2JsonPinyinChineseNameChineseName
+from openapi_client.apis.paths.api2_json_pinyin_chinese_name_batch import Api2JsonPinyinChineseNameBatch
+from openapi_client.apis.paths.api2_json_chinese_name_match_chinese_surname_latin_chinese_given_name_latin_chinese_name import Api2JsonChineseNameMatchChineseSurnameLatinChineseGivenNameLatinChineseName
+from openapi_client.apis.paths.api2_json_chinese_name_match_batch import Api2JsonChineseNameMatchBatch
+from openapi_client.apis.paths.api2_json_gender_chinese_name_pinyin_chinese_surname_latin_chinese_given_name_latin import Api2JsonGenderChineseNamePinyinChineseSurnameLatinChineseGivenNameLatin
+from openapi_client.apis.paths.api2_json_gender_chinese_name_pinyin_batch import Api2JsonGenderChineseNamePinyinBatch
+from openapi_client.apis.paths.api2_json_gender_chinese_name_chinese_name import Api2JsonGenderChineseNameChineseName
+from openapi_client.apis.paths.api2_json_gender_chinese_name_batch import Api2JsonGenderChineseNameBatch
+from openapi_client.apis.paths.api2_json_chinese_name_candidates_chinese_surname_latin_chinese_given_name_latin import Api2JsonChineseNameCandidatesChineseSurnameLatinChineseGivenNameLatin
+from openapi_client.apis.paths.api2_json_chinese_name_candidates_batch import Api2JsonChineseNameCandidatesBatch
+from openapi_client.apis.paths.api2_json_chinese_name_gender_candidates_chinese_surname_latin_chinese_given_name_latin_known_gender import Api2JsonChineseNameGenderCandidatesChineseSurnameLatinChineseGivenNameLatinKnownGender
+from openapi_client.apis.paths.api2_json_chinese_name_candidates_gender_batch import Api2JsonChineseNameCandidatesGenderBatch
+from openapi_client.apis.paths.api2_json_parse_japanese_name_japanese_name import Api2JsonParseJapaneseNameJapaneseName
+from openapi_client.apis.paths.api2_json_parse_japanese_name_batch import Api2JsonParseJapaneseNameBatch
+from openapi_client.apis.paths.api2_json_japanese_name_kanji_candidates_japanese_surname_latin_japanese_given_name_latin import Api2JsonJapaneseNameKanjiCandidatesJapaneseSurnameLatinJapaneseGivenNameLatin
+from openapi_client.apis.paths.api2_json_japanese_name_kanji_candidates_japanese_surname_latin_japanese_given_name_latin_known_gender import Api2JsonJapaneseNameKanjiCandidatesJapaneseSurnameLatinJapaneseGivenNameLatinKnownGender
+from openapi_client.apis.paths.api2_json_japanese_name_latin_candidates_japanese_surname_kanji_japanese_given_name_kanji import Api2JsonJapaneseNameLatinCandidatesJapaneseSurnameKanjiJapaneseGivenNameKanji
+from openapi_client.apis.paths.api2_json_japanese_name_kanji_candidates_batch import Api2JsonJapaneseNameKanjiCandidatesBatch
+from openapi_client.apis.paths.api2_json_japanese_name_gender_kanji_candidates_batch import Api2JsonJapaneseNameGenderKanjiCandidatesBatch
+from openapi_client.apis.paths.api2_json_japanese_name_latin_candidates_batch import Api2JsonJapaneseNameLatinCandidatesBatch
+from openapi_client.apis.paths.api2_json_japanese_name_match_japanese_surname_latin_japanese_given_name_latin_japanese_name import Api2JsonJapaneseNameMatchJapaneseSurnameLatinJapaneseGivenNameLatinJapaneseName
+from openapi_client.apis.paths.api2_json_japanese_name_match_feedback_loop_japanese_surname_latin_japanese_given_name_latin_japanese_name import Api2JsonJapaneseNameMatchFeedbackLoopJapaneseSurnameLatinJapaneseGivenNameLatinJapaneseName
+from openapi_client.apis.paths.api2_json_japanese_name_match_batch import Api2JsonJapaneseNameMatchBatch
+from openapi_client.apis.paths.api2_json_gender_japanese_name_japanese_surname_japanese_given_name import Api2JsonGenderJapaneseNameJapaneseSurnameJapaneseGivenName
+from openapi_client.apis.paths.api2_json_gender_japanese_name_batch import Api2JsonGenderJapaneseNameBatch
+from openapi_client.apis.paths.api2_json_gender_japanese_name_full_japanese_name import Api2JsonGenderJapaneseNameFullJapaneseName
+from openapi_client.apis.paths.api2_json_gender_japanese_name_full_batch import Api2JsonGenderJapaneseNameFullBatch
+from openapi_client.apis.paths.api2_json_phone_code_first_name_last_name_phone_number import Api2JsonPhoneCodeFirstNameLastNamePhoneNumber
+from openapi_client.apis.paths.api2_json_phone_code_geo_first_name_last_name_phone_number_country_iso2 import Api2JsonPhoneCodeGeoFirstNameLastNamePhoneNumberCountryIso2
+from openapi_client.apis.paths.api2_json_phone_code_geo_feedback_loop_first_name_last_name_phone_number_phone_number_e164_country_iso2 import Api2JsonPhoneCodeGeoFeedbackLoopFirstNameLastNamePhoneNumberPhoneNumberE164CountryIso2
+from openapi_client.apis.paths.api2_json_phone_code_batch import Api2JsonPhoneCodeBatch
+from openapi_client.apis.paths.api2_json_phone_code_geo_batch import Api2JsonPhoneCodeGeoBatch
+from openapi_client.apis.paths.api2_json_parse_name_name_full import Api2JsonParseNameNameFull
+
+PathToApi = typing_extensions.TypedDict(
+    'PathToApi',
+    {
+        PathValues.API2_JSON_NAME_TYPE_PROPER_NOUN: Api2JsonNameTypeProperNoun,
+        PathValues.API2_JSON_ORIGIN_FIRST_NAME_LAST_NAME: Api2JsonOriginFirstNameLastName,
+        PathValues.API2_JSON_REGIONS: Api2JsonRegions,
+        PathValues.API2_JSON_COUNTRY_PERSONAL_NAME_FULL: Api2JsonCountryPersonalNameFull,
+        PathValues.API2_JSON_DISABLE_SOURCE_DISABLED: Api2JsonDisableSourceDisabled,
+        PathValues.API2_JSON_SOFTWARE_VERSION: Api2JsonSoftwareVersion,
+        PathValues.API2_JSON_API_STATUS: Api2JsonApiStatus,
+        PathValues.API2_JSON_API_SERVICES: Api2JsonApiServices,
+        PathValues.API2_JSON_TAXONOMY_CLASSES_CLASSIFIER_NAME: Api2JsonTaxonomyClassesClassifierName,
+        PathValues.API2_JSON_API_USAGE: Api2JsonApiUsage,
+        PathValues.API2_JSON_API_USAGE_HISTORY: Api2JsonApiUsageHistory,
+        PathValues.API2_JSON_API_USAGE_HISTORY_AGGREGATE: Api2JsonApiUsageHistoryAggregate,
+        PathValues.API2_JSON_LEARNABLE_SOURCE_LEARNABLE_TOKEN: Api2JsonLearnableSourceLearnableToken,
+        PathValues.API2_JSON_LEARNABLE_SOURCE_LEARNABLE: Api2JsonLearnableSourceLearnable,
+        PathValues.API2_JSON_API_KEY_INFO: Api2JsonApiKeyInfo,
+        PathValues.API2_JSON_ANONYMIZE_SOURCE_ANONYMIZED_TOKEN: Api2JsonAnonymizeSourceAnonymizedToken,
+        PathValues.API2_JSON_ANONYMIZE_SOURCE_ANONYMIZED: Api2JsonAnonymizeSourceAnonymized,
+        PathValues.API2_JSON_NAME_TYPE_GEO_PROPER_NOUN_COUNTRY_ISO2: Api2JsonNameTypeGeoProperNounCountryIso2,
+        PathValues.API2_JSON_NAME_TYPE_BATCH: Api2JsonNameTypeBatch,
+        PathValues.API2_JSON_NAME_TYPE_GEO_BATCH: Api2JsonNameTypeGeoBatch,
+        PathValues.API2_JSON_CORRIDOR_COUNTRY_ISO2FROM_FIRST_NAME_FROM_LAST_NAME_FROM_COUNTRY_ISO2TO_FIRST_NAME_TO_LAST_NAME_TO: Api2JsonCorridorCountryIso2FromFirstNameFromLastNameFromCountryIso2ToFirstNameToLastNameTo,
+        PathValues.API2_JSON_CORRIDOR_BATCH: Api2JsonCorridorBatch,
+        PathValues.API2_JSON_GENDER_FIRST_NAME: Api2JsonGenderFirstName,
+        PathValues.API2_JSON_GENDER_FIRST_NAME_LAST_NAME: Api2JsonGenderFirstNameLastName,
+        PathValues.API2_JSON_GENDER_GEO_FIRST_NAME_LAST_NAME_COUNTRY_ISO2: Api2JsonGenderGeoFirstNameLastNameCountryIso2,
+        PathValues.API2_JSON_GENDER_GEO_BATCH: Api2JsonGenderGeoBatch,
+        PathValues.API2_JSON_GENDER_BATCH: Api2JsonGenderBatch,
+        PathValues.API2_JSON_GENDER_FULL_GEO_FULL_NAME_COUNTRY_ISO2: Api2JsonGenderFullGeoFullNameCountryIso2,
+        PathValues.API2_JSON_GENDER_FULL_FULL_NAME: Api2JsonGenderFullFullName,
+        PathValues.API2_JSON_GENDER_FULL_BATCH: Api2JsonGenderFullBatch,
+        PathValues.API2_JSON_GENDER_FULL_GEO_BATCH: Api2JsonGenderFullGeoBatch,
+        PathValues.API2_JSON_ORIGIN_BATCH: Api2JsonOriginBatch,
+        PathValues.API2_JSON_SUBCLASSIFICATION_INDIAN_FIRST_NAME_LAST_NAME: Api2JsonSubclassificationIndianFirstNameLastName,
+        PathValues.API2_JSON_SUBCLASSIFICATION_INDIAN_FULL_FULL_NAME: Api2JsonSubclassificationIndianFullFullName,
+        PathValues.API2_JSON_SUBCLASSIFICATION_COUNTRY_ISO2_FIRST_NAME_LAST_NAME: Api2JsonSubclassificationCountryIso2FirstNameLastName,
+        PathValues.API2_JSON_SUBCLASSIFICATION_FULL_COUNTRY_ISO2_FULL_NAME: Api2JsonSubclassificationFullCountryIso2FullName,
+        PathValues.API2_JSON_SUBCLASSIFICATION_BATCH: Api2JsonSubclassificationBatch,
+        PathValues.API2_JSON_SUBCLASSIFICATION_FULL_BATCH: Api2JsonSubclassificationFullBatch,
+        PathValues.API2_JSON_SUBCLASSIFICATION_INDIAN_BATCH: Api2JsonSubclassificationIndianBatch,
+        PathValues.API2_JSON_SUBCLASSIFICATION_INDIAN_FULL_BATCH: Api2JsonSubclassificationIndianFullBatch,
+        PathValues.API2_JSON_RELIGION_INDIAN_FULL_SUB_DIVISION_ISO31662_PERSONAL_NAME_FULL: Api2JsonReligionIndianFullSubDivisionIso31662PersonalNameFull,
+        PathValues.API2_JSON_RELIGION_INDIAN_SUB_DIVISION_ISO31662_FIRST_NAME_LAST_NAME: Api2JsonReligionIndianSubDivisionIso31662FirstNameLastName,
+        PathValues.API2_JSON_RELIGION_COUNTRY_ISO2_SUB_DIVISION_ISO31662_FIRST_NAME_LAST_NAME: Api2JsonReligionCountryIso2SubDivisionIso31662FirstNameLastName,
+        PathValues.API2_JSON_RELIGION_FULL_COUNTRY_ISO2_SUB_DIVISION_ISO31662_PERSONAL_NAME_FULL: Api2JsonReligionFullCountryIso2SubDivisionIso31662PersonalNameFull,
+        PathValues.API2_JSON_RELIGION_FULL_BATCH: Api2JsonReligionFullBatch,
+        PathValues.API2_JSON_RELIGION_INDIAN_FULL_BATCH: Api2JsonReligionIndianFullBatch,
+        PathValues.API2_JSON_RELIGION_BATCH: Api2JsonReligionBatch,
+        PathValues.API2_JSON_RELIGION_INDIAN_BATCH: Api2JsonReligionIndianBatch,
+        PathValues.API2_JSON_CASTEGROUP_INDIAN_FULL_SUB_DIVISION_ISO31662_PERSONAL_NAME_FULL: Api2JsonCastegroupIndianFullSubDivisionIso31662PersonalNameFull,
+        PathValues.API2_JSON_CASTEGROUP_INDIAN_FULL_BATCH: Api2JsonCastegroupIndianFullBatch,
+        PathValues.API2_JSON_CASTEGROUP_INDIAN_SUB_DIVISION_ISO31662_FIRST_NAME_LAST_NAME: Api2JsonCastegroupIndianSubDivisionIso31662FirstNameLastName,
+        PathValues.API2_JSON_CASTEGROUP_INDIAN_BATCH: Api2JsonCastegroupIndianBatch,
+        PathValues.API2_JSON_CASTE_INDIAN_SUB_DIVISION_ISO31662_FIRST_NAME_LAST_NAME: Api2JsonCasteIndianSubDivisionIso31662FirstNameLastName,
+        PathValues.API2_JSON_CASTE_INDIAN_BATCH: Api2JsonCasteIndianBatch,
+        PathValues.API2_JSON_COUNTRY_BATCH: Api2JsonCountryBatch,
+        PathValues.API2_JSON_US_RACE_ETHNICITY_FIRST_NAME_LAST_NAME: Api2JsonUsRaceEthnicityFirstNameLastName,
+        PathValues.API2_JSON_US_RACE_ETHNICITY_ZIP5_FIRST_NAME_LAST_NAME_ZIP5CODE: Api2JsonUsRaceEthnicityZIP5FirstNameLastNameZip5Code,
+        PathValues.API2_JSON_US_RACE_ETHNICITY_BATCH: Api2JsonUsRaceEthnicityBatch,
+        PathValues.API2_JSON_US_ZIP_RACE_ETHNICITY_BATCH: Api2JsonUsZipRaceEthnicityBatch,
+        PathValues.API2_JSON_DIASPORA_COUNTRY_ISO2_FIRST_NAME_LAST_NAME: Api2JsonDiasporaCountryIso2FirstNameLastName,
+        PathValues.API2_JSON_DIASPORA_BATCH: Api2JsonDiasporaBatch,
+        PathValues.API2_JSON_PARSE_NAME_NAME_FULL_COUNTRY_ISO2: Api2JsonParseNameNameFullCountryIso2,
+        PathValues.API2_JSON_PARSE_NAME_BATCH: Api2JsonParseNameBatch,
+        PathValues.API2_JSON_PARSE_NAME_GEO_BATCH: Api2JsonParseNameGeoBatch,
+        PathValues.API2_JSON_PARSE_CHINESE_NAME_CHINESE_NAME: Api2JsonParseChineseNameChineseName,
+        PathValues.API2_JSON_PARSE_CHINESE_NAME_BATCH: Api2JsonParseChineseNameBatch,
+        PathValues.API2_JSON_PINYIN_CHINESE_NAME_CHINESE_NAME: Api2JsonPinyinChineseNameChineseName,
+        PathValues.API2_JSON_PINYIN_CHINESE_NAME_BATCH: Api2JsonPinyinChineseNameBatch,
+        PathValues.API2_JSON_CHINESE_NAME_MATCH_CHINESE_SURNAME_LATIN_CHINESE_GIVEN_NAME_LATIN_CHINESE_NAME: Api2JsonChineseNameMatchChineseSurnameLatinChineseGivenNameLatinChineseName,
+        PathValues.API2_JSON_CHINESE_NAME_MATCH_BATCH: Api2JsonChineseNameMatchBatch,
+        PathValues.API2_JSON_GENDER_CHINESE_NAME_PINYIN_CHINESE_SURNAME_LATIN_CHINESE_GIVEN_NAME_LATIN: Api2JsonGenderChineseNamePinyinChineseSurnameLatinChineseGivenNameLatin,
+        PathValues.API2_JSON_GENDER_CHINESE_NAME_PINYIN_BATCH: Api2JsonGenderChineseNamePinyinBatch,
+        PathValues.API2_JSON_GENDER_CHINESE_NAME_CHINESE_NAME: Api2JsonGenderChineseNameChineseName,
+        PathValues.API2_JSON_GENDER_CHINESE_NAME_BATCH: Api2JsonGenderChineseNameBatch,
+        PathValues.API2_JSON_CHINESE_NAME_CANDIDATES_CHINESE_SURNAME_LATIN_CHINESE_GIVEN_NAME_LATIN: Api2JsonChineseNameCandidatesChineseSurnameLatinChineseGivenNameLatin,
+        PathValues.API2_JSON_CHINESE_NAME_CANDIDATES_BATCH: Api2JsonChineseNameCandidatesBatch,
+        PathValues.API2_JSON_CHINESE_NAME_GENDER_CANDIDATES_CHINESE_SURNAME_LATIN_CHINESE_GIVEN_NAME_LATIN_KNOWN_GENDER: Api2JsonChineseNameGenderCandidatesChineseSurnameLatinChineseGivenNameLatinKnownGender,
+        PathValues.API2_JSON_CHINESE_NAME_CANDIDATES_GENDER_BATCH: Api2JsonChineseNameCandidatesGenderBatch,
+        PathValues.API2_JSON_PARSE_JAPANESE_NAME_JAPANESE_NAME: Api2JsonParseJapaneseNameJapaneseName,
+        PathValues.API2_JSON_PARSE_JAPANESE_NAME_BATCH: Api2JsonParseJapaneseNameBatch,
+        PathValues.API2_JSON_JAPANESE_NAME_KANJI_CANDIDATES_JAPANESE_SURNAME_LATIN_JAPANESE_GIVEN_NAME_LATIN: Api2JsonJapaneseNameKanjiCandidatesJapaneseSurnameLatinJapaneseGivenNameLatin,
+        PathValues.API2_JSON_JAPANESE_NAME_KANJI_CANDIDATES_JAPANESE_SURNAME_LATIN_JAPANESE_GIVEN_NAME_LATIN_KNOWN_GENDER: Api2JsonJapaneseNameKanjiCandidatesJapaneseSurnameLatinJapaneseGivenNameLatinKnownGender,
+        PathValues.API2_JSON_JAPANESE_NAME_LATIN_CANDIDATES_JAPANESE_SURNAME_KANJI_JAPANESE_GIVEN_NAME_KANJI: Api2JsonJapaneseNameLatinCandidatesJapaneseSurnameKanjiJapaneseGivenNameKanji,
+        PathValues.API2_JSON_JAPANESE_NAME_KANJI_CANDIDATES_BATCH: Api2JsonJapaneseNameKanjiCandidatesBatch,
+        PathValues.API2_JSON_JAPANESE_NAME_GENDER_KANJI_CANDIDATES_BATCH: Api2JsonJapaneseNameGenderKanjiCandidatesBatch,
+        PathValues.API2_JSON_JAPANESE_NAME_LATIN_CANDIDATES_BATCH: Api2JsonJapaneseNameLatinCandidatesBatch,
+        PathValues.API2_JSON_JAPANESE_NAME_MATCH_JAPANESE_SURNAME_LATIN_JAPANESE_GIVEN_NAME_LATIN_JAPANESE_NAME: Api2JsonJapaneseNameMatchJapaneseSurnameLatinJapaneseGivenNameLatinJapaneseName,
+        PathValues.API2_JSON_JAPANESE_NAME_MATCH_FEEDBACK_LOOP_JAPANESE_SURNAME_LATIN_JAPANESE_GIVEN_NAME_LATIN_JAPANESE_NAME: Api2JsonJapaneseNameMatchFeedbackLoopJapaneseSurnameLatinJapaneseGivenNameLatinJapaneseName,
+        PathValues.API2_JSON_JAPANESE_NAME_MATCH_BATCH: Api2JsonJapaneseNameMatchBatch,
+        PathValues.API2_JSON_GENDER_JAPANESE_NAME_JAPANESE_SURNAME_JAPANESE_GIVEN_NAME: Api2JsonGenderJapaneseNameJapaneseSurnameJapaneseGivenName,
+        PathValues.API2_JSON_GENDER_JAPANESE_NAME_BATCH: Api2JsonGenderJapaneseNameBatch,
+        PathValues.API2_JSON_GENDER_JAPANESE_NAME_FULL_JAPANESE_NAME: Api2JsonGenderJapaneseNameFullJapaneseName,
+        PathValues.API2_JSON_GENDER_JAPANESE_NAME_FULL_BATCH: Api2JsonGenderJapaneseNameFullBatch,
+        PathValues.API2_JSON_PHONE_CODE_FIRST_NAME_LAST_NAME_PHONE_NUMBER: Api2JsonPhoneCodeFirstNameLastNamePhoneNumber,
+        PathValues.API2_JSON_PHONE_CODE_GEO_FIRST_NAME_LAST_NAME_PHONE_NUMBER_COUNTRY_ISO2: Api2JsonPhoneCodeGeoFirstNameLastNamePhoneNumberCountryIso2,
+        PathValues.API2_JSON_PHONE_CODE_GEO_FEEDBACK_LOOP_FIRST_NAME_LAST_NAME_PHONE_NUMBER_PHONE_NUMBER_E164_COUNTRY_ISO2: Api2JsonPhoneCodeGeoFeedbackLoopFirstNameLastNamePhoneNumberPhoneNumberE164CountryIso2,
+        PathValues.API2_JSON_PHONE_CODE_BATCH: Api2JsonPhoneCodeBatch,
+        PathValues.API2_JSON_PHONE_CODE_GEO_BATCH: Api2JsonPhoneCodeGeoBatch,
+        PathValues.API2_JSON_PARSE_NAME_NAME_FULL: Api2JsonParseNameNameFull,
+    }
+)
+
+path_to_api = PathToApi(
+    {
+        PathValues.API2_JSON_NAME_TYPE_PROPER_NOUN: Api2JsonNameTypeProperNoun,
+        PathValues.API2_JSON_ORIGIN_FIRST_NAME_LAST_NAME: Api2JsonOriginFirstNameLastName,
+        PathValues.API2_JSON_REGIONS: Api2JsonRegions,
+        PathValues.API2_JSON_COUNTRY_PERSONAL_NAME_FULL: Api2JsonCountryPersonalNameFull,
+        PathValues.API2_JSON_DISABLE_SOURCE_DISABLED: Api2JsonDisableSourceDisabled,
+        PathValues.API2_JSON_SOFTWARE_VERSION: Api2JsonSoftwareVersion,
+        PathValues.API2_JSON_API_STATUS: Api2JsonApiStatus,
+        PathValues.API2_JSON_API_SERVICES: Api2JsonApiServices,
+        PathValues.API2_JSON_TAXONOMY_CLASSES_CLASSIFIER_NAME: Api2JsonTaxonomyClassesClassifierName,
+        PathValues.API2_JSON_API_USAGE: Api2JsonApiUsage,
+        PathValues.API2_JSON_API_USAGE_HISTORY: Api2JsonApiUsageHistory,
+        PathValues.API2_JSON_API_USAGE_HISTORY_AGGREGATE: Api2JsonApiUsageHistoryAggregate,
+        PathValues.API2_JSON_LEARNABLE_SOURCE_LEARNABLE_TOKEN: Api2JsonLearnableSourceLearnableToken,
+        PathValues.API2_JSON_LEARNABLE_SOURCE_LEARNABLE: Api2JsonLearnableSourceLearnable,
+        PathValues.API2_JSON_API_KEY_INFO: Api2JsonApiKeyInfo,
+        PathValues.API2_JSON_ANONYMIZE_SOURCE_ANONYMIZED_TOKEN: Api2JsonAnonymizeSourceAnonymizedToken,
+        PathValues.API2_JSON_ANONYMIZE_SOURCE_ANONYMIZED: Api2JsonAnonymizeSourceAnonymized,
+        PathValues.API2_JSON_NAME_TYPE_GEO_PROPER_NOUN_COUNTRY_ISO2: Api2JsonNameTypeGeoProperNounCountryIso2,
+        PathValues.API2_JSON_NAME_TYPE_BATCH: Api2JsonNameTypeBatch,
+        PathValues.API2_JSON_NAME_TYPE_GEO_BATCH: Api2JsonNameTypeGeoBatch,
+        PathValues.API2_JSON_CORRIDOR_COUNTRY_ISO2FROM_FIRST_NAME_FROM_LAST_NAME_FROM_COUNTRY_ISO2TO_FIRST_NAME_TO_LAST_NAME_TO: Api2JsonCorridorCountryIso2FromFirstNameFromLastNameFromCountryIso2ToFirstNameToLastNameTo,
+        PathValues.API2_JSON_CORRIDOR_BATCH: Api2JsonCorridorBatch,
+        PathValues.API2_JSON_GENDER_FIRST_NAME: Api2JsonGenderFirstName,
+        PathValues.API2_JSON_GENDER_FIRST_NAME_LAST_NAME: Api2JsonGenderFirstNameLastName,
+        PathValues.API2_JSON_GENDER_GEO_FIRST_NAME_LAST_NAME_COUNTRY_ISO2: Api2JsonGenderGeoFirstNameLastNameCountryIso2,
+        PathValues.API2_JSON_GENDER_GEO_BATCH: Api2JsonGenderGeoBatch,
+        PathValues.API2_JSON_GENDER_BATCH: Api2JsonGenderBatch,
+        PathValues.API2_JSON_GENDER_FULL_GEO_FULL_NAME_COUNTRY_ISO2: Api2JsonGenderFullGeoFullNameCountryIso2,
+        PathValues.API2_JSON_GENDER_FULL_FULL_NAME: Api2JsonGenderFullFullName,
+        PathValues.API2_JSON_GENDER_FULL_BATCH: Api2JsonGenderFullBatch,
+        PathValues.API2_JSON_GENDER_FULL_GEO_BATCH: Api2JsonGenderFullGeoBatch,
+        PathValues.API2_JSON_ORIGIN_BATCH: Api2JsonOriginBatch,
+        PathValues.API2_JSON_SUBCLASSIFICATION_INDIAN_FIRST_NAME_LAST_NAME: Api2JsonSubclassificationIndianFirstNameLastName,
+        PathValues.API2_JSON_SUBCLASSIFICATION_INDIAN_FULL_FULL_NAME: Api2JsonSubclassificationIndianFullFullName,
+        PathValues.API2_JSON_SUBCLASSIFICATION_COUNTRY_ISO2_FIRST_NAME_LAST_NAME: Api2JsonSubclassificationCountryIso2FirstNameLastName,
+        PathValues.API2_JSON_SUBCLASSIFICATION_FULL_COUNTRY_ISO2_FULL_NAME: Api2JsonSubclassificationFullCountryIso2FullName,
+        PathValues.API2_JSON_SUBCLASSIFICATION_BATCH: Api2JsonSubclassificationBatch,
+        PathValues.API2_JSON_SUBCLASSIFICATION_FULL_BATCH: Api2JsonSubclassificationFullBatch,
+        PathValues.API2_JSON_SUBCLASSIFICATION_INDIAN_BATCH: Api2JsonSubclassificationIndianBatch,
+        PathValues.API2_JSON_SUBCLASSIFICATION_INDIAN_FULL_BATCH: Api2JsonSubclassificationIndianFullBatch,
+        PathValues.API2_JSON_RELIGION_INDIAN_FULL_SUB_DIVISION_ISO31662_PERSONAL_NAME_FULL: Api2JsonReligionIndianFullSubDivisionIso31662PersonalNameFull,
+        PathValues.API2_JSON_RELIGION_INDIAN_SUB_DIVISION_ISO31662_FIRST_NAME_LAST_NAME: Api2JsonReligionIndianSubDivisionIso31662FirstNameLastName,
+        PathValues.API2_JSON_RELIGION_COUNTRY_ISO2_SUB_DIVISION_ISO31662_FIRST_NAME_LAST_NAME: Api2JsonReligionCountryIso2SubDivisionIso31662FirstNameLastName,
+        PathValues.API2_JSON_RELIGION_FULL_COUNTRY_ISO2_SUB_DIVISION_ISO31662_PERSONAL_NAME_FULL: Api2JsonReligionFullCountryIso2SubDivisionIso31662PersonalNameFull,
+        PathValues.API2_JSON_RELIGION_FULL_BATCH: Api2JsonReligionFullBatch,
+        PathValues.API2_JSON_RELIGION_INDIAN_FULL_BATCH: Api2JsonReligionIndianFullBatch,
+        PathValues.API2_JSON_RELIGION_BATCH: Api2JsonReligionBatch,
+        PathValues.API2_JSON_RELIGION_INDIAN_BATCH: Api2JsonReligionIndianBatch,
+        PathValues.API2_JSON_CASTEGROUP_INDIAN_FULL_SUB_DIVISION_ISO31662_PERSONAL_NAME_FULL: Api2JsonCastegroupIndianFullSubDivisionIso31662PersonalNameFull,
+        PathValues.API2_JSON_CASTEGROUP_INDIAN_FULL_BATCH: Api2JsonCastegroupIndianFullBatch,
+        PathValues.API2_JSON_CASTEGROUP_INDIAN_SUB_DIVISION_ISO31662_FIRST_NAME_LAST_NAME: Api2JsonCastegroupIndianSubDivisionIso31662FirstNameLastName,
+        PathValues.API2_JSON_CASTEGROUP_INDIAN_BATCH: Api2JsonCastegroupIndianBatch,
+        PathValues.API2_JSON_CASTE_INDIAN_SUB_DIVISION_ISO31662_FIRST_NAME_LAST_NAME: Api2JsonCasteIndianSubDivisionIso31662FirstNameLastName,
+        PathValues.API2_JSON_CASTE_INDIAN_BATCH: Api2JsonCasteIndianBatch,
+        PathValues.API2_JSON_COUNTRY_BATCH: Api2JsonCountryBatch,
+        PathValues.API2_JSON_US_RACE_ETHNICITY_FIRST_NAME_LAST_NAME: Api2JsonUsRaceEthnicityFirstNameLastName,
+        PathValues.API2_JSON_US_RACE_ETHNICITY_ZIP5_FIRST_NAME_LAST_NAME_ZIP5CODE: Api2JsonUsRaceEthnicityZIP5FirstNameLastNameZip5Code,
+        PathValues.API2_JSON_US_RACE_ETHNICITY_BATCH: Api2JsonUsRaceEthnicityBatch,
+        PathValues.API2_JSON_US_ZIP_RACE_ETHNICITY_BATCH: Api2JsonUsZipRaceEthnicityBatch,
+        PathValues.API2_JSON_DIASPORA_COUNTRY_ISO2_FIRST_NAME_LAST_NAME: Api2JsonDiasporaCountryIso2FirstNameLastName,
+        PathValues.API2_JSON_DIASPORA_BATCH: Api2JsonDiasporaBatch,
+        PathValues.API2_JSON_PARSE_NAME_NAME_FULL_COUNTRY_ISO2: Api2JsonParseNameNameFullCountryIso2,
+        PathValues.API2_JSON_PARSE_NAME_BATCH: Api2JsonParseNameBatch,
+        PathValues.API2_JSON_PARSE_NAME_GEO_BATCH: Api2JsonParseNameGeoBatch,
+        PathValues.API2_JSON_PARSE_CHINESE_NAME_CHINESE_NAME: Api2JsonParseChineseNameChineseName,
+        PathValues.API2_JSON_PARSE_CHINESE_NAME_BATCH: Api2JsonParseChineseNameBatch,
+        PathValues.API2_JSON_PINYIN_CHINESE_NAME_CHINESE_NAME: Api2JsonPinyinChineseNameChineseName,
+        PathValues.API2_JSON_PINYIN_CHINESE_NAME_BATCH: Api2JsonPinyinChineseNameBatch,
+        PathValues.API2_JSON_CHINESE_NAME_MATCH_CHINESE_SURNAME_LATIN_CHINESE_GIVEN_NAME_LATIN_CHINESE_NAME: Api2JsonChineseNameMatchChineseSurnameLatinChineseGivenNameLatinChineseName,
+        PathValues.API2_JSON_CHINESE_NAME_MATCH_BATCH: Api2JsonChineseNameMatchBatch,
+        PathValues.API2_JSON_GENDER_CHINESE_NAME_PINYIN_CHINESE_SURNAME_LATIN_CHINESE_GIVEN_NAME_LATIN: Api2JsonGenderChineseNamePinyinChineseSurnameLatinChineseGivenNameLatin,
+        PathValues.API2_JSON_GENDER_CHINESE_NAME_PINYIN_BATCH: Api2JsonGenderChineseNamePinyinBatch,
+        PathValues.API2_JSON_GENDER_CHINESE_NAME_CHINESE_NAME: Api2JsonGenderChineseNameChineseName,
+        PathValues.API2_JSON_GENDER_CHINESE_NAME_BATCH: Api2JsonGenderChineseNameBatch,
+        PathValues.API2_JSON_CHINESE_NAME_CANDIDATES_CHINESE_SURNAME_LATIN_CHINESE_GIVEN_NAME_LATIN: Api2JsonChineseNameCandidatesChineseSurnameLatinChineseGivenNameLatin,
+        PathValues.API2_JSON_CHINESE_NAME_CANDIDATES_BATCH: Api2JsonChineseNameCandidatesBatch,
+        PathValues.API2_JSON_CHINESE_NAME_GENDER_CANDIDATES_CHINESE_SURNAME_LATIN_CHINESE_GIVEN_NAME_LATIN_KNOWN_GENDER: Api2JsonChineseNameGenderCandidatesChineseSurnameLatinChineseGivenNameLatinKnownGender,
+        PathValues.API2_JSON_CHINESE_NAME_CANDIDATES_GENDER_BATCH: Api2JsonChineseNameCandidatesGenderBatch,
+        PathValues.API2_JSON_PARSE_JAPANESE_NAME_JAPANESE_NAME: Api2JsonParseJapaneseNameJapaneseName,
+        PathValues.API2_JSON_PARSE_JAPANESE_NAME_BATCH: Api2JsonParseJapaneseNameBatch,
+        PathValues.API2_JSON_JAPANESE_NAME_KANJI_CANDIDATES_JAPANESE_SURNAME_LATIN_JAPANESE_GIVEN_NAME_LATIN: Api2JsonJapaneseNameKanjiCandidatesJapaneseSurnameLatinJapaneseGivenNameLatin,
+        PathValues.API2_JSON_JAPANESE_NAME_KANJI_CANDIDATES_JAPANESE_SURNAME_LATIN_JAPANESE_GIVEN_NAME_LATIN_KNOWN_GENDER: Api2JsonJapaneseNameKanjiCandidatesJapaneseSurnameLatinJapaneseGivenNameLatinKnownGender,
+        PathValues.API2_JSON_JAPANESE_NAME_LATIN_CANDIDATES_JAPANESE_SURNAME_KANJI_JAPANESE_GIVEN_NAME_KANJI: Api2JsonJapaneseNameLatinCandidatesJapaneseSurnameKanjiJapaneseGivenNameKanji,
+        PathValues.API2_JSON_JAPANESE_NAME_KANJI_CANDIDATES_BATCH: Api2JsonJapaneseNameKanjiCandidatesBatch,
+        PathValues.API2_JSON_JAPANESE_NAME_GENDER_KANJI_CANDIDATES_BATCH: Api2JsonJapaneseNameGenderKanjiCandidatesBatch,
+        PathValues.API2_JSON_JAPANESE_NAME_LATIN_CANDIDATES_BATCH: Api2JsonJapaneseNameLatinCandidatesBatch,
+        PathValues.API2_JSON_JAPANESE_NAME_MATCH_JAPANESE_SURNAME_LATIN_JAPANESE_GIVEN_NAME_LATIN_JAPANESE_NAME: Api2JsonJapaneseNameMatchJapaneseSurnameLatinJapaneseGivenNameLatinJapaneseName,
+        PathValues.API2_JSON_JAPANESE_NAME_MATCH_FEEDBACK_LOOP_JAPANESE_SURNAME_LATIN_JAPANESE_GIVEN_NAME_LATIN_JAPANESE_NAME: Api2JsonJapaneseNameMatchFeedbackLoopJapaneseSurnameLatinJapaneseGivenNameLatinJapaneseName,
+        PathValues.API2_JSON_JAPANESE_NAME_MATCH_BATCH: Api2JsonJapaneseNameMatchBatch,
+        PathValues.API2_JSON_GENDER_JAPANESE_NAME_JAPANESE_SURNAME_JAPANESE_GIVEN_NAME: Api2JsonGenderJapaneseNameJapaneseSurnameJapaneseGivenName,
+        PathValues.API2_JSON_GENDER_JAPANESE_NAME_BATCH: Api2JsonGenderJapaneseNameBatch,
+        PathValues.API2_JSON_GENDER_JAPANESE_NAME_FULL_JAPANESE_NAME: Api2JsonGenderJapaneseNameFullJapaneseName,
+        PathValues.API2_JSON_GENDER_JAPANESE_NAME_FULL_BATCH: Api2JsonGenderJapaneseNameFullBatch,
+        PathValues.API2_JSON_PHONE_CODE_FIRST_NAME_LAST_NAME_PHONE_NUMBER: Api2JsonPhoneCodeFirstNameLastNamePhoneNumber,
+        PathValues.API2_JSON_PHONE_CODE_GEO_FIRST_NAME_LAST_NAME_PHONE_NUMBER_COUNTRY_ISO2: Api2JsonPhoneCodeGeoFirstNameLastNamePhoneNumberCountryIso2,
+        PathValues.API2_JSON_PHONE_CODE_GEO_FEEDBACK_LOOP_FIRST_NAME_LAST_NAME_PHONE_NUMBER_PHONE_NUMBER_E164_COUNTRY_ISO2: Api2JsonPhoneCodeGeoFeedbackLoopFirstNameLastNamePhoneNumberPhoneNumberE164CountryIso2,
+        PathValues.API2_JSON_PHONE_CODE_BATCH: Api2JsonPhoneCodeBatch,
+        PathValues.API2_JSON_PHONE_CODE_GEO_BATCH: Api2JsonPhoneCodeGeoBatch,
+        PathValues.API2_JSON_PARSE_NAME_NAME_FULL: Api2JsonParseNameNameFull,
+    }
+)

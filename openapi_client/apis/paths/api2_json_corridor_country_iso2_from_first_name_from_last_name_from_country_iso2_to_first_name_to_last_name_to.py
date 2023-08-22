@@ -1,0 +1,7 @@
+from openapi_client.paths.api2_json_corridor_country_iso2_from_first_name_from_last_name_from_country_iso2_to_first_name_to_last_name_to.get import ApiForget
+
+
+class Api2JsonCorridorCountryIso2FromFirstNameFromLastNameFromCountryIso2ToFirstNameToLastNameTo(
+    ApiForget,
+):
+    pass
